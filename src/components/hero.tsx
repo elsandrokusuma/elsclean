@@ -6,6 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Button } from "@/components/ui/button";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight } from "lucide-react";
+import React from "react";
 
 const heroItems = [
   {
@@ -29,17 +30,18 @@ const heroItems = [
 ];
 
 export default function Hero() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
+
   return (
-    <section className="w-full h-[90vh] min-h-[700px] relative">
+    <section className="w-full h-[70vh] min-h-[600px] relative">
       <Carousel 
         className="w-full h-full" 
         opts={{ loop: true }} 
-        plugins={[
-          Autoplay({
-            delay: 5000,
-            stopOnInteraction: true,
-          }),
-        ]}
+        plugins={[plugin.current]}
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
       >
         <CarouselContent className="h-full">
           {heroItems.map((item, index) => (
