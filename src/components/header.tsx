@@ -4,15 +4,15 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Music } from "lucide-react";
+import { Menu, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Catalog", href: "#catalog" },
-  { name: "AI Advisor", href: "#advisor" },
+  { name: "Layanan", href: "#catalog" },
+  { name: "Konsultasi AI", href: "#advisor" },
   { name: "Blog", href: "#blog" },
-  { name: "Contact", href: "#contact" },
+  { name: "Kontak", href: "#contact" },
 ];
 
 export default function Header() {
@@ -30,7 +30,7 @@ export default function Header() {
     <header className={cn("sticky top-0 z-50 w-full transition-all duration-300", isScrolled ? "bg-background/80 shadow-md backdrop-blur-sm" : "bg-transparent")}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Music className="h-8 w-8 text-accent" />
+          <Sparkles className="h-8 w-8 text-accent" />
           <span className="text-2xl font-bold font-headline">elsclean.id</span>
         </Link>
         <nav className="hidden md:flex gap-6 items-center">
@@ -52,7 +52,7 @@ export default function Header() {
             <SheetContent side="right">
               <div className="grid gap-4 py-6">
                 <Link href="/" className="flex items-center gap-2 mb-4">
-                  <Music className="h-8 w-8 text-accent" />
+                  <Sparkles className="h-8 w-8 text-accent" />
                   <span className="text-2xl font-bold font-headline">elsclean.id</span>
                 </Link>
                 {navLinks.map((link) => (

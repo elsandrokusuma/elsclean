@@ -5,34 +5,34 @@ import { Badge } from "@/components/ui/badge";
 
 const products = [
   {
-    name: "AudioFlow Pro-X Headphones",
-    price: "$299",
+    name: "Deep Cleaning",
+    price: "Rp 50.000",
     image: "https://placehold.co/600x600.png",
-    imageHint: "sleek headphones",
-    specs: ["50mm Drivers", "Noise-Cancelling", "20-Hour Battery", "Bluetooth 5.2"],
-    badge: "Best Seller",
+    imageHint: "deep clean shoes",
+    specs: ["Cuci Mendalam", "Sol Dalam & Luar", "Penghilang Noda", "Proses 2-3 Hari"],
+    badge: "Paling Laris",
   },
   {
-    name: "AudioFlow Studio Monitors",
-    price: "$499",
+    name: "Fast Cleaning",
+    price: "Rp 35.000",
     image: "https://placehold.co/600x600.png",
-    imageHint: "studio speakers",
-    specs: ["5-inch Woofer", "1-inch Tweeter", "Flat Response", "XLR/TRS Inputs"],
-    badge: "New Arrival",
+    imageHint: "fast clean shoes",
+    specs: ["Cuci Cepat", "Bagian Luar", "Wangi Menyegarkan", "Bisa Ditunggu"],
+    badge: "Layanan Cepat",
   },
   {
-    name: "AudioFlow Podcaster Mic",
-    price: "$149",
+    name: "Unyellowing",
+    price: "Rp 75.000",
     image: "https://placehold.co/600x600.png",
-    imageHint: "podcast microphone",
-    specs: ["Cardioid Pattern", "USB-C", "Zero-Latency Monitoring", "Built-in Pop Filter"],
+    imageHint: "shoe unyellowing",
+    specs: ["Hilangkan Kuning", "Sol Karet", "Kembali Putih", "Aman Untuk Bahan"],
   },
   {
-    name: "AudioFlow Go-TWS Earbuds",
-    price: "$129",
+    name: "Repaint",
+    price: "Rp 150.000",
     image: "https://placehold.co/600x600.png",
-    imageHint: "wireless earbuds",
-    specs: ["True Wireless", "Active Noise-Cancelling", "8-Hour Battery", "IPX5 Water-Resistant"],
+    imageHint: "shoe repaint",
+    specs: ["Ganti Warna", "Cat Premium", "Tahan Lama", "Banyak Pilihan Warna"],
   },
 ];
 
@@ -42,9 +42,9 @@ export default function Catalog() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Premier Collection</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Layanan Kami</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Explore our curated selection of high-fidelity audio equipment, designed for enthusiasts and professionals alike.
+              Pilih layanan yang paling sesuai untuk membuat sepatumu kembali bersih dan prima seperti baru.
             </p>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function Catalog() {
                 </ul>
               </CardContent>
               <CardFooter className="p-4 pt-0">
-                <Button className="w-full">Add to Cart</Button>
+                <Button className="w-full">Pesan Layanan</Button>
               </CardFooter>
             </Card>
           ))}

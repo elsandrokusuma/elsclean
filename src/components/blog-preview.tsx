@@ -6,24 +6,24 @@ import { ArrowRight } from "lucide-react";
 
 const blogPosts = [
   {
-    title: "The Ultimate Guide to Choosing Headphones",
-    description: "Discover the key factors to consider when selecting the perfect pair of headphones for your lifestyle.",
+    title: "5 Cara Merawat Sepatu Sneakers Putih Agar Tetap Kinclong",
+    description: "Jaga sneakers putih kesayanganmu agar tidak menguning dengan tips mudah ini.",
     image: "https://placehold.co/600x400.png",
-    imageHint: "headphones lifestyle",
+    imageHint: "white sneakers",
     link: "#",
   },
   {
-    title: "Setting Up Your Home Studio: A Beginner's Guide",
-    description: "Everything you need to know to create a professional-sounding home studio on a budget.",
+    title: "Mengenal Jenis-Jenis Bahan Sepatu dan Cara Membersihkannya",
+    description: "Beda bahan, beda cara penanganan. Pelajari cara membersihkan sepatu sesuai bahannya.",
     image: "https://placehold.co/600x400.png",
-    imageHint: "home studio",
+    imageHint: "shoe materials",
     link: "#",
   },
   {
-    title: "Hi-Fi vs. Lo-Fi: Understanding Audio Quality",
-    description: "A deep dive into what high-fidelity audio means and how it compares to other formats.",
+    title: "DIY Repaint Sepatu: Bikin Sepatumu Jadi Baru Lagi!",
+    description: "Ingin sepatumu tampil beda? Coba repaint sendiri di rumah dengan panduan lengkap ini.",
     image: "https://placehold.co/600x400.png",
-    imageHint: "audio waves",
+    imageHint: "shoe painting",
     link: "#",
   },
 ];
@@ -34,10 +34,10 @@ export default function BlogPreview() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Our Blog</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">News, Tips & Reviews</h2>
+            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Blog Kami</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Tips & Trik Perawatan Sepatu</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Stay updated with the latest in audio technology, get expert tips, and read our in-depth product reviews.
+              Dapatkan informasi terbaru seputar dunia perawatan sepatu, tips dari para ahli, dan ulasan produk terbaik.
             </p>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function BlogPreview() {
               <CardFooter className="p-6 pt-0">
                 <Button asChild variant="link" className="p-0 h-auto text-accent">
                   <Link href={post.link}>
-                    Read More <ArrowRight className="ml-2 h-4 w-4" />
+                    Baca Selengkapnya <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </CardFooter>

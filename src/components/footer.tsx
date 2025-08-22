@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Music, Twitter, Facebook, Instagram } from "lucide-react";
+import { Sparkles, Twitter, Facebook, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -8,39 +8,39 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <Link href="/" className="flex items-center space-x-2 text-2xl font-headline font-bold">
-              <Music className="h-8 w-8 text-accent" />
+              <Sparkles className="h-8 w-8 text-accent" />
               <span>elsclean.id</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-primary-foreground/80">
-              Your ultimate destination for high-fidelity audio equipment.
+              Solusi terbaik untuk perawatan sepatu kesayangan Anda.
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-2">
             <div>
-              <h3 className="font-headline font-semibold uppercase tracking-wider">Solutions</h3>
+              <h3 className="font-headline font-semibold uppercase tracking-wider">Layanan</h3>
               <ul className="mt-4 space-y-2">
-                <li><Link href="#catalog" className="text-sm text-primary-foreground/80 hover:text-accent">Headphones</Link></li>
-                <li><Link href="#catalog" className="text-sm text-primary-foreground/80 hover:text-accent">Speakers</Link></li>
-                <li><Link href="#catalog" className="text-sm text-primary-foreground/80 hover:text-accent">Microphones</Link></li>
-                <li><Link href="#catalog" className="text-sm text-primary-foreground/80 hover:text-accent">Accessories</Link></li>
+                <li><Link href="#catalog" className="text-sm text-primary-foreground/80 hover:text-accent">Deep Cleaning</Link></li>
+                <li><Link href="#catalog" className="text-sm text-primary-foreground/80 hover:text-accent">Fast Cleaning</Link></li>
+                <li><Link href="#catalog" className="text-sm text-primary-foreground/80 hover:text-accent">Unyellowing</Link></li>
+                <li><Link href="#catalog" className="text-sm text-primary-foreground/80 hover:text-accent">Repaint</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-headline font-semibold uppercase tracking-wider">Support</h3>
+              <h3 className="font-headline font-semibold uppercase tracking-wider">Dukungan</h3>
               <ul className="mt-4 space-y-2">
-                <li><Link href="#contact" className="text-sm text-primary-foreground/80 hover:text-accent">Contact Us</Link></li>
+                <li><Link href="#contact" className="text-sm text-primary-foreground/80 hover:text-accent">Hubungi Kami</Link></li>
                 <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-accent">FAQ</Link></li>
-                <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-accent">Shipping</Link></li>
-                <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-accent">Returns</Link></li>
+                <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-accent">Pengiriman</Link></li>
+                <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-accent">Garansi</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-headline font-semibold uppercase tracking-wider">Company</h3>
+              <h3 className="font-headline font-semibold uppercase tracking-wider">Perusahaan</h3>
               <ul className="mt-4 space-y-2">
-                <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-accent">About</Link></li>
+                <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-accent">Tentang Kami</Link></li>
                 <li><Link href="#blog" className="text-sm text-primary-foreground/80 hover:text-accent">Blog</Link></li>
-                <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-accent">Careers</Link></li>
+                <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-accent">Karir</Link></li>
               </ul>
             </div>
           </div>

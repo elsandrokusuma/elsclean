@@ -28,8 +28,8 @@ export default function Contact() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you soon.",
+      title: "Pesan Terkirim!",
+      description: "Terima kasih telah menghubungi kami. Kami akan segera merespon pesan Anda.",
     });
     form.reset();
   }
@@ -39,9 +39,9 @@ export default function Contact() {
       <div className="container px-4 md:px-6">
         <div className="grid gap-12 lg:grid-cols-2">
           <div className="space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get in Touch</h2>
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Hubungi Kami</h2>
             <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-              Have questions about our products or need support? We're here to help. Send us a message or find our contact details below.
+              Punya pertanyaan tentang layanan kami atau butuh bantuan? Kami siap membantu. Kirim pesan atau temukan detail kontak kami di bawah.
             </p>
             <div className="space-y-4 pt-4">
               <div className="flex items-start space-x-4">
@@ -50,7 +50,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold">Email</h3>
-                  <p className="text-muted-foreground">support@audioflow.com</p>
+                  <p className="text-muted-foreground">support@elsclean.id</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -58,8 +58,8 @@ export default function Contact() {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Phone</h3>
-                  <p className="text-muted-foreground">(+1) 234-567-890</p>
+                  <h3 className="text-lg font-semibold">Telepon</h3>
+                  <p className="text-muted-foreground">(+62) 812-3456-7890</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -67,34 +67,34 @@ export default function Contact() {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Office</h3>
-                  <p className="text-muted-foreground">123 Audio Avenue, Sound City, USA</p>
+                  <h3 className="text-lg font-semibold">Lokasi</h3>
+                  <p className="text-muted-foreground">Jl. Sepatu Bersih No. 123, Jakarta</p>
                 </div>
               </div>
             </div>
           </div>
           <Card>
             <CardHeader>
-              <CardTitle>Contact Us</CardTitle>
-              <CardDescription>Fill out the form and we'll be in touch.</CardDescription>
+              <CardTitle>Form Kontak</CardTitle>
+              <CardDescription>Isi form di bawah dan kami akan segera menghubungi Anda.</CardDescription>
             </CardHeader>
             <CardContent>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                   <FormField control={form.control} name="name" render={({ field }) => (
-                    <FormItem><FormLabel>Name</FormLabel><FormControl><Input placeholder="Your Name" {...field} /></FormControl><FormMessage /></FormItem>
+                    <FormItem><FormLabel>Nama</FormLabel><FormControl><Input placeholder="Nama Anda" {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                   <FormField control={form.control} name="email" render={({ field }) => (
-                    <FormItem><FormLabel>Email</FormLabel><FormControl><Input placeholder="your.email@example.com" {...field} /></FormControl><FormMessage /></FormItem>
+                    <FormItem><FormLabel>Email</FormLabel><FormControl><Input placeholder="email@anda.com" {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                   <FormField control={form.control} name="subject" render={({ field }) => (
-                    <FormItem><FormLabel>Subject</FormLabel><FormControl><Input placeholder="Question about..." {...field} /></FormControl><FormMessage /></FormItem>
+                    <FormItem><FormLabel>Subjek</FormLabel><FormControl><Input placeholder="Pertanyaan tentang..." {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                   <FormField control={form.control} name="message" render={({ field }) => (
-                    <FormItem><FormLabel>Message</FormLabel><FormControl><Textarea placeholder="Your message..." rows={5} {...field} /></FormControl><FormMessage /></FormItem>
+                    <FormItem><FormLabel>Pesan</FormLabel><FormControl><Textarea placeholder="Tuliskan pesan Anda..." rows={5} {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                   <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
-                    <Send className="mr-2 h-4 w-4" /> Send Message
+                    <Send className="mr-2 h-4 w-4" /> Kirim Pesan
                   </Button>
                 </form>
               </Form>

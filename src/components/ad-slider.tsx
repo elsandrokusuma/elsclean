@@ -14,39 +14,39 @@ import React from "react";
 const ads = [
   {
     image: "https://placehold.co/1200x400/293462/E8F0FE",
-    imageHint: "headphone sale",
-    title: "Diskon Musim Panas!",
-    description: "Diskon hingga 50% untuk headphone dan speaker pilihan.",
+    imageHint: "clean shoes",
+    title: "Sepatu Kinclong Seperti Baru!",
+    description: "Layanan cuci sepatu premium dengan hasil maksimal.",
     link: "#",
   },
   {
     image: "https://placehold.co/1200x400/FF8800/E8F0FE",
-    imageHint: "new speakers",
-    title: "Pendatang Baru: AudioFlow X-Bass",
-    description: "Rasakan bass yang dalam tidak seperti sebelumnya.",
+    imageHint: "delivery service",
+    title: "Layanan Antar Jemput",
+    description: "Gratis antar jemput untuk wilayah Jakarta.",
     link: "#",
   },
   {
     image: "https://placehold.co/1200x400/E8F0FE/293462",
-    imageHint: "free shipping",
-    title: "Gratis Ongkir Seluruh Indonesia",
-    description: "Nikmati gratis ongkir untuk semua pesanan di atas Rp500.000.",
+    imageHint: "satisfaction guarantee",
+    title: "Garansi Kepuasan",
+    description: "Tidak puas dengan hasilnya? Kami cuci ulang gratis.",
     link: "#",
   },
 ];
 
 export default function AdSlider() {
+    const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
   return (
     <section className="w-full py-6 md:py-12 flex justify-center">
       <div className="container px-4 md:px-6">
         <Carousel
-          plugins={[
-            Autoplay({
-              delay: 5000,
-              stopOnInteraction: true,
-            }),
-          ]}
+          plugins={[plugin.current]}
           className="w-full"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
           opts={{
             align: "start",
             loop: true,

@@ -4,25 +4,25 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const testimonials = [
   {
-    name: "Sarah L.",
-    role: "Music Producer",
-    quote: "The AudioFlow monitors have completely transformed my mixing process. The clarity is unparalleled at this price point. I'm hearing details I never noticed before.",
-    avatar: "https://placehold.co/100x100.png",
-    avatarHint: "woman portrait"
-  },
-  {
-    name: "Mike T.",
-    role: "Podcast Host",
-    quote: "I recommended the AudioFlow Podcaster Mic to my entire network. It's plug-and-play, sounds incredible, and looks professional on camera. A game-changer for content creators.",
+    name: "Andi R.",
+    role: "Pecinta Sneakers",
+    quote: "Hasilnya luar biasa! Sepatu Jordan saya yang kusam sekarang kelihatan seperti baru lagi setelah di-deep clean. Pelayanannya juga ramah dan cepat. Sangat direkomendasikan!",
     avatar: "https://placehold.co/100x100.png",
     avatarHint: "man portrait"
   },
   {
-    name: "Jessica P.",
-    role: "Audiophile",
-    quote: "I was skeptical about the Pro-X headphones, but they blew me away. The noise-cancelling is top-tier, and the soundstage feels so wide and immersive. My daily commute has never been better.",
+    name: "Bunga C.",
+    role: "Karyawan Swasta",
+    quote: "Layanan antar jemputnya sangat membantu di tengah kesibukan. Sepatu kerja saya kembali bersih dan wangi tanpa harus keluar rumah. Terima kasih elsclean.id!",
     avatar: "https://placehold.co/100x100.png",
-    avatarHint: "woman smiling"
+    avatarHint: "woman portrait"
+  },
+  {
+    name: "Rian S.",
+    role: "Mahasiswa",
+    quote: "Awalnya ragu untuk repaint sepatu, tapi hasilnya melebihi ekspektasi. Warnanya solid dan rapi banget. Teman-teman sampai mengira saya beli sepatu baru. Keren!",
+    avatar: "https://placehold.co/100x100.png",
+    avatarHint: "man smiling"
   },
 ];
 
@@ -32,9 +32,9 @@ export default function Testimonials() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Loved by Creatives & Enthusiasts</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Apa Kata Pelanggan Kami</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              See what our customers are saying about their AudioFlow experience.
+              Lihat bagaimana kami membantu para pelanggan setia merawat sepatu kesayangan mereka.
             </p>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: 'elsclean.id',
-  description: 'Experience Sound, Redefined.',
+  description: 'Layanan cuci sepatu profesional.',
 };
 
 export default function RootLayout({
