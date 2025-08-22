@@ -13,7 +13,7 @@ import React from "react";
 
 const ads = [
   {
-    image: "https://placehold.co/1200x400.png",
+    image: "/sepatu-kinclong.jpeg",
     imageHint: "clean shoes",
     title: "Sepatu Kinclong Seperti Baru!",
     description: "Layanan cuci sepatu premium dengan hasil maksimal.",
@@ -37,7 +37,7 @@ const ads = [
 
 export default function AdSlider() {
     const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: false })
+    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
   return (
     <section className="w-full py-6 md:py-12 flex justify-center">
