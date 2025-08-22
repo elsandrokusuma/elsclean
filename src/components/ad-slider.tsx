@@ -37,7 +37,7 @@ const ads = [
 
 export default function AdSlider() {
     const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+    Autoplay({ delay: 5000, stopOnInteraction: false })
   );
   return (
     <section className="w-full py-6 md:py-12 flex justify-center">
@@ -45,8 +45,6 @@ export default function AdSlider() {
         <Carousel
           plugins={[plugin.current]}
           className="w-full"
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
           opts={{
             align: "start",
             loop: true,
