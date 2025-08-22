@@ -1,5 +1,4 @@
 import Header from '@/components/header';
-import Hero from '@/components/hero';
 import AdSlider from '@/components/ad-slider';
 import Catalog from '@/components/catalog';
 import AudioAdvisor from '@/components/audio-advisor';
@@ -13,7 +12,6 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
       <main className="flex-1">
-        <Hero />
         <AdSlider />
         <Catalog />
         <AudioAdvisor />
