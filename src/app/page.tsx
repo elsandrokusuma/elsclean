@@ -1,5 +1,6 @@
 import Header from '@/components/header';
 import Hero from '@/components/hero';
+import AdSlider from '@/components/ad-slider';
 import Catalog from '@/components/catalog';
 import AudioAdvisor from '@/components/audio-advisor';
 import Testimonials from '@/components/testimonials';
@@ -13,6 +14,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <AdSlider />
         <Catalog />
         <AudioAdvisor />
         <Testimonials />
