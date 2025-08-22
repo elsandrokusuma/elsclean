@@ -11,10 +11,11 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import React from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 const ads = [
   {
-    image: "https://placehold.co/1200x400.png",
+    image: "https://i.imgur.com/v8n2M1b.png",
     imageHint: "clean shoes",
     title: "Sepatu Kinclong Seperti Baru!",
     description: "Layanan cuci sepatu premium dengan hasil maksimal.",
@@ -37,11 +38,18 @@ const ads = [
 ];
 
 export default function AdSlider() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
+
   return (
     <section className="w-full py-6 md:py-12 flex justify-center">
       <div className="container px-4 md:px-6">
         <Carousel
           className="w-full"
+          plugins={[plugin.current]}
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
           opts={{
             align: "start",
             loop: true,
