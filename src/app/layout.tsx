@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'elssclean.id',
+  title: 'elsclean.id',
   description: 'Experience Sound, Redefined.',
 };
 
