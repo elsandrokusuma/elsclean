@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center space-x-2 text-2xl font-headline font-bold">
               <Music className="h-8 w-8 text-accent" />
-              <span>AudioFlow</span>
+              <span>elssclean.id</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-primary-foreground/80">
               Your ultimate destination for high-fidelity audio equipment.
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t border-primary-foreground/20 pt-8 flex flex-col items-center justify-between sm:flex-row">
-          <p className="text-sm text-primary-foreground/80">&copy; {new Date().getFullYear()} AudioFlow. All rights reserved.</p>
+          <p className="text-sm text-primary-foreground/80">&copy; {new Date().getFullYear()} elssclean.id. All rights reserved.</p>
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             <Link href="#" className="text-primary-foreground/80 hover:text-accent"><Twitter className="h-5 w-5" /></Link>
             <Link href="#" className="text-primary-foreground/80 hover:text-accent"><Facebook className="h-5 w-5" /></Link>

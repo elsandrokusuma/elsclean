@@ -31,7 +31,7 @@ export default function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Music className="h-8 w-8 text-accent" />
-          <span className="text-2xl font-bold font-headline">AudioFlow</span>
+          <span className="text-2xl font-bold font-headline">elssclean.id</span>
         </Link>
         <nav className="hidden md:flex gap-6 items-center">
           {navLinks.map((link) => (
@@ -53,7 +53,7 @@ export default function Header() {
               <div className="grid gap-4 py-6">
                 <Link href="/" className="flex items-center gap-2 mb-4">
                   <Music className="h-8 w-8 text-accent" />
-                  <span className="text-2xl font-bold font-headline">AudioFlow</span>
+                  <span className="text-2xl font-bold font-headline">elssclean.id</span>
                 </Link>
                 {navLinks.map((link) => (
                   <Link key={link.name} href={link.href} className="text-lg font-medium transition-colors hover:text-accent">
