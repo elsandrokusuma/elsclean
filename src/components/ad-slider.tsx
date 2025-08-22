@@ -14,21 +14,21 @@ import React from "react";
 
 const ads = [
   {
-    image: "https://placehold.co/1200x400.png",
+    image: "https://placehold.co/1200x400",
     imageHint: "headphone sale",
     title: "Diskon Musim Panas!",
     description: "Diskon hingga 50% untuk headphone dan speaker pilihan.",
     link: "#",
   },
   {
-    image: "https://placehold.co/1200x401.png",
+    image: "https://placehold.co/1200x400",
     imageHint: "new speakers",
     title: "Pendatang Baru: AudioFlow X-Bass",
     description: "Rasakan bass yang dalam tidak seperti sebelumnya.",
     link: "#",
   },
   {
-    image: "https://placehold.co/1200x402.png",
+    image: "https://placehold.co/1200x400",
     imageHint: "free shipping",
     title: "Gratis Ongkir Seluruh Indonesia",
     description: "Nikmati gratis ongkir untuk semua pesanan di atas Rp500.000.",
@@ -42,7 +42,7 @@ export default function AdSlider() {
   );
 
   return (
-    <section className="w-full py-6 md:py-12">
+    <section className="w-full py-6 md:py-12 flex justify-center">
       <div className="container px-4 md:px-6">
         <Carousel
           plugins={[plugin.current]}
