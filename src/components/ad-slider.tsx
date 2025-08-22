@@ -13,7 +13,7 @@ import React from "react";
 
 const ads = [
   {
-    image: "https://placehold.co/1200x400.png",
+    image: "https://storage.googleapis.com/studioprod-52a1c.appspot.com/a9c1e345-d85c-4d39-951c-7a26f6580f7c",
     imageHint: "clean shoes",
     title: "Sepatu Kinclong Seperti Baru!",
     description: "Layanan cuci sepatu premium dengan hasil maksimal.",
