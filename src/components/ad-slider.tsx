@@ -21,14 +21,14 @@ const ads = [
     link: "#",
   },
   {
-    image: "https://placehold.co/1200x400.png",
+    image: "https://placehold.co/1200x401.png",
     imageHint: "new speakers",
     title: "Pendatang Baru: AudioFlow X-Bass",
     description: "Rasakan bass yang dalam tidak seperti sebelumnya.",
     link: "#",
   },
   {
-    image: "https://placehold.co/1200x400.png",
+    image: "https://placehold.co/1200x402.png",
     imageHint: "free shipping",
     title: "Gratis Ongkir Seluruh Indonesia",
     description: "Nikmati gratis ongkir untuk semua pesanan di atas Rp500.000.",
@@ -59,7 +59,7 @@ export default function AdSlider() {
               <CarouselItem key={index}>
                 <Link href={ad.link}>
                   <Card className="overflow-hidden">
-                    <CardContent className="p-0 relative">
+                    <CardContent className="p-0 relative flex items-center justify-center text-center">
                       <Image
                         src={ad.image}
                         alt={ad.title}
@@ -68,7 +68,7 @@ export default function AdSlider() {
                         className="aspect-[3/1] w-full object-cover"
                         data-ai-hint={ad.imageHint}
                       />
-                      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
+                      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-4">
                         <h3 className="text-2xl md:text-4xl font-bold text-white font-headline">
                           {ad.title}
                         </h3>
