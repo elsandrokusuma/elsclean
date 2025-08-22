@@ -15,7 +15,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 const ads = [
   {
-    image: "https://i.imgur.com/v8n2M1b.png?t=1",
+    image: "https://placehold.co/1200x400.png",
     imageHint: "clean shoes",
     title: "Sepatu Kinclong Seperti Baru!",
     description: "Layanan cuci sepatu premium dengan hasil maksimal.",
