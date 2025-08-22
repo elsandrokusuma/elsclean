@@ -20,14 +20,14 @@ const ads = [
     link: "#",
   },
   {
-    image: "https://placehold.co/1200x400/FF8800/E8F0FE",
+    image: "https://placehold.co/1200x400.png",
     imageHint: "delivery service",
     title: "Layanan Antar Jemput",
     description: "Gratis antar jemput untuk wilayah Jakarta.",
     link: "#",
   },
   {
-    image: "https://placehold.co/1200x400/E8F0FE/293462",
+    image: "https://placehold.co/1200x400.png",
     imageHint: "satisfaction guarantee",
     title: "Garansi Kepuasan",
     description: "Tidak puas dengan hasilnya? Kami cuci ulang gratis.",
