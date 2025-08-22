@@ -14,21 +14,21 @@ import React from "react";
 
 const ads = [
   {
-    image: "https://placehold.co/1200x400/293462/E8F0FE",
+    image: "https://placehold.co/1200x400/293462/E8F0FE.png",
     imageHint: "headphone sale",
     title: "Diskon Musim Panas!",
     description: "Diskon hingga 50% untuk headphone dan speaker pilihan.",
     link: "#",
   },
   {
-    image: "https://placehold.co/1200x400/FF8800/E8F0FE",
+    image: "https://placehold.co/1200x400/FF8800/E8F0FE.png",
     imageHint: "new speakers",
     title: "Pendatang Baru: AudioFlow X-Bass",
     description: "Rasakan bass yang dalam tidak seperti sebelumnya.",
     link: "#",
   },
   {
-    image: "https://placehold.co/1200x400/E8F0FE/293462",
+    image: "https://placehold.co/1200x400/E8F0FE/293462.png",
     imageHint: "free shipping",
     title: "Gratis Ongkir Seluruh Indonesia",
     description: "Nikmati gratis ongkir untuk semua pesanan di atas Rp500.000.",
