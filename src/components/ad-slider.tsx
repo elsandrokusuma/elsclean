@@ -7,7 +7,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
@@ -37,18 +36,17 @@ const ads = [
 ];
 
 export default function AdSlider() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
-  );
-
   return (
     <section className="w-full py-6 md:py-12 flex justify-center">
       <div className="container px-4 md:px-6">
         <Carousel
-          plugins={[plugin.current]}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+              stopOnInteraction: true,
+            }),
+          ]}
           className="w-full"
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
           opts={{
             align: "start",
             loop: true,
