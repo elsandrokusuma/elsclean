@@ -29,13 +29,6 @@ const placeholderAds: Omit<AdData, 'id'>[] = [
     description: 'Gratis antar jemput untuk wilayah Jakarta.',
     link: '#',
   },
-  {
-    image: 'https://i.imgur.com/50B9Zo2.gif',
-    imageHint: 'special promotion',
-    title: 'Promo Spesial Musim Hujan!',
-    description: 'Dapatkan diskon 20% untuk layanan Deep Cleaning. Jangan biarkan sepatumu kotor!',
-    link: '#',
-  },
 ];
 
 const placeholderDataWithIds = placeholderAds.map((ad, index) => ({ ...ad, id: `placeholder-${index}` }));
