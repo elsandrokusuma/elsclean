@@ -4,14 +4,13 @@
 import {initializeApp, getApp, getApps} from 'firebase/app';
 import {getFirestore, collection, type DocumentData} from 'firebase/firestore';
 
-// TODO: Paste your Firebase config object here.
 const firebaseConfig = {
-  apiKey: 'PASTE_YOUR_API_KEY_HERE',
-  authDomain: 'PASTE_YOUR_AUTH_DOMAIN_HERE',
-  projectId: 'PASTE_YOUR_PROJECT_ID_HERE',
-  storageBucket: 'PASTE_YOUR_STORAGE_BUCKET_HERE',
-  messagingSenderId: 'PASTE_YOUR_MESSAGING_SENDER_ID_HERE',
-  appId: 'PASTE_YOUR_APP_ID_HERE',
+  apiKey: "AIzaSyDa0mHjrTK1O73yosGLrE7I5Q51eoNa3sg",
+  authDomain: "stationery-inventory.firebaseapp.com",
+  projectId: "stationery-inventory",
+  storageBucket: "stationery-inventory.firebasestorage.app",
+  messagingSenderId: "812550241868",
+  appId: "1:812550241868:web:ebf1e04bbfa98a7d56fee9"
 };
 
 // Initialize Firebase
