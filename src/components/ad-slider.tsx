@@ -10,11 +10,10 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { db, type AdData } from "@/lib/firebase";
-import { collection, onSnapshot, query, addDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 const placeholderAds: Omit<AdData, 'id'>[] = [
   {
@@ -40,57 +39,40 @@ const placeholderAds: Omit<AdData, 'id'>[] = [
   },
 ];
 
-
 export default function AdSlider() {
   const [ads, setAds] = useState<AdData[]>([]);
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     const fetchAndSeedAds = async () => {
+      setLoading(true);
       try {
         const adsCollection = collection(db, "ads");
-        const q = query(adsCollection);
-        const snapshot = await getDocs(q);
+        const snapshot = await getDocs(adsCollection);
 
         if (snapshot.empty) {
           console.log("Firestore 'ads' collection is empty. Seeding with placeholder data...");
-          const seededAds : AdData[] = [];
+          const seededAds: AdData[] = [];
           for (const ad of placeholderAds) {
-              const docRef = await addDoc(adsCollection, ad);
-              seededAds.push({ id: docRef.id, ...ad });
+            const docRef = await addDoc(adsCollection, ad);
+            seededAds.push({ id: docRef.id, ...ad });
           }
           setAds(seededAds);
         } else {
-          const adsData: AdData[] = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AdData));
+          const adsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AdData));
           setAds(adsData);
         }
       } catch (error) {
         console.error("Error fetching or seeding ads from Firestore:", error);
         // Fallback to placeholder data if Firestore is unreachable
-        const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
-        setAds(placeholderAdsWithIds);
+        const placeholderDataWithIds = placeholderAds.map((ad, index) => ({ ...ad, id: `placeholder-${index}` }));
+        setAds(placeholderDataWithIds);
       } finally {
         setLoading(false);
       }
     };
 
     fetchAndSeedAds();
-    
-    // Set up the real-time listener
-    const q = query(collection(db, "ads"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        const adsData: AdData[] = [];
-        querySnapshot.forEach((doc) => {
-          adsData.push({ id: doc.id, ...doc.data() } as AdData);
-        });
-        if(adsData.length > 0) {
-            setAds(adsData);
-        }
-    }, (error) => {
-        console.error("Error with real-time listener:", error);
-    });
-
-    return () => unsubscribe();
   }, []);
 
   const plugin = React.useRef(
@@ -99,9 +81,9 @@ export default function AdSlider() {
 
   if (loading) {
     return (
-       <section className="w-full py-6 md:py-12 flex justify-center">
+      <section className="w-full py-6 md:py-12 flex justify-center">
         <div className="container px-4 md:px-6">
-            <div className="w-full aspect-[3/1] bg-muted animate-pulse rounded-lg" />
+          <div className="w-full aspect-[3/1] bg-muted animate-pulse rounded-lg" />
         </div>
       </section>
     );
@@ -123,28 +105,30 @@ export default function AdSlider() {
           <CarouselContent>
             {ads.map((ad) => (
               <CarouselItem key={ad.id}>
-                <Link href={ad.link}>
-                  <Card className="overflow-hidden">
-                    <CardContent className="p-0 relative flex items-center justify-center text-center">
-                      <Image
-                        src={ad.image}
-                        alt={ad.title}
-                        width={1200}
-                        height={400}
-                        className="aspect-[3/1] w-full object-cover"
-                        data-ai-hint={ad.imageHint}
-                        priority
-                      />
-                      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-4">
-                        <h3 className="text-2xl md:text-4xl font-bold text-white font-headline">
-                          {ad.title}
-                        </h3>
-                        <p className="text-sm md:text-lg text-gray-200 mt-2">
-                          {ad.description}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
+                <Link href={ad.link} legacyBehavior>
+                  <a className="outline-none ring-ring focus-visible:ring-2 rounded-lg">
+                    <Card className="overflow-hidden">
+                      <CardContent className="p-0 relative flex items-center justify-center text-center">
+                        <Image
+                          src={ad.image}
+                          alt={ad.title}
+                          width={1200}
+                          height={400}
+                          className="aspect-[3/1] w-full object-cover"
+                          data-ai-hint={ad.imageHint}
+                          priority={ads.indexOf(ad) === 0}
+                        />
+                        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-4">
+                          <h3 className="text-2xl md:text-4xl font-bold text-white font-headline">
+                            {ad.title}
+                          </h3>
+                          <p className="text-sm md:text-lg text-gray-200 mt-2">
+                            {ad.description}
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </a>
                 </Link>
               </CarouselItem>
             ))}
