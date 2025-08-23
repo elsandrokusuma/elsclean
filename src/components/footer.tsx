@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Sparkles, Twitter, Facebook, Instagram } from "lucide-react";
+import { Twitter, Facebook, Instagram } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -7,9 +8,8 @@ export default function Footer() {
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
-            <Link href="/" className="flex items-center space-x-2 text-2xl font-headline font-bold">
-              <Sparkles className="h-8 w-8 text-accent" />
-              <span>elsclean.id</span>
+            <Link href="/" className="flex items-center space-x-2">
+               <Image src="https://placehold.co/150x50.png" alt="elsclean.id logo" width={120} height={40} data-ai-hint="company logo" className="brightness-0 invert"/>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-primary-foreground/80">
               Solusi terbaik untuk perawatan sepatu kesayangan Anda.

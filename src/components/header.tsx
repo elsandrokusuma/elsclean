@@ -4,8 +4,9 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Sparkles } from "lucide-react";
+import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -30,8 +31,7 @@ export default function Header() {
     <header className={cn("sticky top-0 z-50 w-full transition-all duration-300", isScrolled ? "bg-background/80 shadow-md backdrop-blur-sm" : "bg-transparent")}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Sparkles className="h-8 w-8 text-accent" />
-          <span className="text-2xl font-bold font-headline">elsclean.id</span>
+          <Image src="https://placehold.co/150x50.png" alt="elsclean.id logo" width={120} height={40} data-ai-hint="company logo" />
         </Link>
         <nav className="hidden md:flex gap-6 items-center">
           {navLinks.map((link) => (
@@ -52,8 +52,7 @@ export default function Header() {
             <SheetContent side="right">
               <div className="grid gap-4 py-6">
                 <Link href="/" className="flex items-center gap-2 mb-4">
-                  <Sparkles className="h-8 w-8 text-accent" />
-                  <span className="text-2xl font-bold font-headline">elsclean.id</span>
+                    <Image src="https://placehold.co/150x50.png" alt="elsclean.id logo" width={120} height={40} data-ai-hint="company logo" />
                 </Link>
                 {navLinks.map((link) => (
                   <Link key={link.name} href={link.href} className="text-lg font-medium transition-colors hover:text-accent">
