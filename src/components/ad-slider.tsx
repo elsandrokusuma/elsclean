@@ -42,6 +42,16 @@ const placeholderAds: Omit<AdData, 'id'>[] = [
 
 const placeholderDataWithIds = placeholderAds.map((ad, index) => ({ ...ad, id: `placeholder-${index}` }));
 
+// Helper function to check if a string is a valid URL
+const isValidUrl = (urlString: string) => {
+  try {
+    new URL(urlString);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 export default function AdSlider() {
   const [ads, setAds] = useState<AdData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -116,33 +126,38 @@ export default function AdSlider() {
           }}
         >
           <CarouselContent>
-            {ads.map((ad, index) => (
-              <CarouselItem key={ad.id}>
-                <Link href={ad.link} className="outline-none ring-ring focus-visible:ring-2 rounded-lg">
-                    <Card className="overflow-hidden">
-                      <CardContent className="p-0 relative flex items-center justify-center text-center">
-                        <Image
-                          src={ad.image}
-                          alt={ad.title}
-                          width={1200}
-                          height={400}
-                          className="aspect-[3/1] w-full object-cover"
-                          data-ai-hint={ad.imageHint}
-                          priority={index === 0}
-                        />
-                        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-4">
-                          <h3 className="text-2xl md:text-4xl font-bold text-white font-headline">
-                            {ad.title}
-                          </h3>
-                          <p className="text-sm md:text-lg text-gray-200 mt-2">
-                            {ad.description}
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                </Link>
-              </CarouselItem>
-            ))}
+            {ads.map((ad, index) => {
+              // Fallback for invalid image URLs from Firestore
+              const imageUrl = isValidUrl(ad.image) ? ad.image : 'https://i.imgur.com/gYKVL3s.png';
+              
+              return (
+                <CarouselItem key={ad.id}>
+                  <Link href={ad.link} className="outline-none ring-ring focus-visible:ring-2 rounded-lg">
+                      <Card className="overflow-hidden">
+                        <CardContent className="p-0 relative flex items-center justify-center text-center">
+                          <Image
+                            src={imageUrl}
+                            alt={ad.title}
+                            width={1200}
+                            height={400}
+                            className="aspect-[3/1] w-full object-cover"
+                            data-ai-hint={ad.imageHint}
+                            priority={index === 0}
+                          />
+                          <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-4">
+                            <h3 className="text-2xl md:text-4xl font-bold text-white font-headline">
+                              {ad.title}
+                            </h3>
+                            <p className="text-sm md:text-lg text-gray-200 mt-2">
+                              {ad.description}
+                            </p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                  </Link>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
