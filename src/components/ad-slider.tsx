@@ -18,7 +18,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const placeholderAds: Omit<AdData, 'id'>[] = [
   {
-    image: 'https://storage.googleapis.com/stella-images/elsclean/888a75e2-2a74-4217-a16f-124b611c385b.png',
+    image: 'https://i.imgur.com/gYKVL3s.png',
     imageHint: 'clean shoes',
     title: 'Sepatu Kinclong Seperti Baru!',
     description: 'Layanan cuci sepatu premium dengan hasil maksimal.',
@@ -58,6 +58,7 @@ export default function AdSlider() {
 
         if (snapshot.empty) {
           // If empty, seed the collection and then set the state
+          console.log("Firestore 'ads' collection is empty. Seeding with placeholder data.");
           const seededAds: AdData[] = [];
           for (const ad of placeholderAds) {
             const docRef = await addDoc(adsCollection, ad);
@@ -67,24 +68,24 @@ export default function AdSlider() {
         } else {
           // If not empty, fetch all documents
           const allDocsSnapshot = await getDocs(adsCollection);
-          if (allDocsSnapshot.empty) {
-             // This case handles if the limit query finds something but the full query doesn't (unlikely)
-             // Or more likely, the seeding is needed after all.
-             setAds(placeholderDataWithIds);
-          } else {
-            const adsData = allDocsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AdData));
-            setAds(adsData);
-          }
+          const adsData = allDocsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AdData));
+          setAds(adsData);
         }
       } catch (error) {
         console.error("Error accessing Firestore, falling back to placeholder data:", error);
         setAds(placeholderDataWithIds);
+        toast({
+          variant: "destructive",
+          title: "Gagal memuat iklan",
+          description: "Tidak dapat terhubung ke database. Menampilkan data contoh.",
+        });
       } finally {
         setLoading(false);
       }
     };
 
     fetchAndSeedAds();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const plugin = React.useRef(
