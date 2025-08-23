@@ -14,8 +14,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { db, type AdData } from "@/lib/firebase";
-import { collection, onSnapshot, query, addDoc } from "firebase/firestore";
-import { useToast } from "@/hooks/use-toast";
+import { collection, onSnapshot, query, addDoc, getDocs } from "firebase/firestore";
 
 const placeholderAds: Omit<AdData, 'id'>[] = [
   {
@@ -45,53 +44,53 @@ const placeholderAds: Omit<AdData, 'id'>[] = [
 export default function AdSlider() {
   const [ads, setAds] = useState<AdData[]>([]);
   const [loading, setLoading] = useState(true);
-  const { toast } = useToast();
   
   useEffect(() => {
-    const seedDatabase = async () => {
-      console.log("Firestore 'ads' collection is empty. Seeding with placeholder data...");
+    const fetchAndSeedAds = async () => {
       try {
-          const adsCollection = collection(db, "ads");
+        const adsCollection = collection(db, "ads");
+        const q = query(adsCollection);
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+          console.log("Firestore 'ads' collection is empty. Seeding with placeholder data...");
+          const seededAds : AdData[] = [];
           for (const ad of placeholderAds) {
-              await addDoc(adsCollection, ad);
+              const docRef = await addDoc(adsCollection, ad);
+              seededAds.push({ id: docRef.id, ...ad });
           }
-          console.log("Database seeded successfully.");
-          const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
-          setAds(placeholderAdsWithIds);
-      } catch (seedError) {
-          console.error("Error seeding database:", seedError);
-          const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
-          setAds(placeholderAdsWithIds);
+          setAds(seededAds);
+        } else {
+          const adsData: AdData[] = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AdData));
+          setAds(adsData);
+        }
+      } catch (error) {
+        console.error("Error fetching or seeding ads from Firestore:", error);
+        // Fallback to placeholder data if Firestore is unreachable
+        const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
+        setAds(placeholderAdsWithIds);
+      } finally {
+        setLoading(false);
       }
     };
 
-    try {
-      const q = query(collection(db, "ads"));
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        if (querySnapshot.empty) {
-            seedDatabase();
-        } else {
-            const adsData: AdData[] = [];
-            querySnapshot.forEach((doc) => {
-              adsData.push({ id: doc.id, ...doc.data() } as AdData);
-            });
+    fetchAndSeedAds();
+    
+    // Set up the real-time listener
+    const q = query(collection(db, "ads"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const adsData: AdData[] = [];
+        querySnapshot.forEach((doc) => {
+          adsData.push({ id: doc.id, ...doc.data() } as AdData);
+        });
+        if(adsData.length > 0) {
             setAds(adsData);
         }
-        setLoading(false);
-      }, (error) => {
-        console.error("Error fetching ads from Firestore:", error);
-        const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
-        setAds(placeholderAdsWithIds);
-        setLoading(false);
-      });
+    }, (error) => {
+        console.error("Error with real-time listener:", error);
+    });
 
-      return () => unsubscribe();
-    } catch (error) {
-        console.error("Firebase not configured or other error:", error);
-        const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
-        setAds(placeholderAdsWithIds);
-        setLoading(false);
-    }
+    return () => unsubscribe();
   }, []);
 
   const plugin = React.useRef(
