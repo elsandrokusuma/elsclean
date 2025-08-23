@@ -110,8 +110,6 @@ export default function AdSlider() {
         <Carousel
           className="w-full"
           plugins={[plugin.current]}
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
           opts={{
             align: "start",
             loop: true,
