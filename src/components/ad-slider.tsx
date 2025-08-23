@@ -25,7 +25,7 @@ const placeholderAds: Omit<AdData, 'id'>[] = [
     link: '#',
   },
   {
-    image: 'https://drive.google.com/uc?id=1OjPT2E_kw7Iwmxr_O_h5hDetAE7gWom_',
+    image: 'https://i.imgur.com/vOnTjY6.gif',
     imageHint: 'delivery service',
     title: 'Layanan Antar Jemput',
     description: 'Gratis antar jemput untuk wilayah Jakarta.',
