@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "elsclean.id",
   description: "Website description",
   icons: {
-    icon: "/favicon.ico",
+    icon: "https://i.imgur.com/VDew6A8.png",
   },
 };
 
