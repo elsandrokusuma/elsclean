@@ -151,14 +151,6 @@ export default function AdSlider() {
                             data-ai-hint={ad.imageHint}
                             priority={index === 0}
                           />
-                          <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-4">
-                            <h3 className="text-2xl md:text-4xl font-bold text-white font-headline">
-                              {ad.title}
-                            </h3>
-                            <p className="text-sm md:text-lg text-gray-200 mt-2">
-                              {ad.description}
-                            </p>
-                          </div>
                         </CardContent>
                       </Card>
                   </Link>
