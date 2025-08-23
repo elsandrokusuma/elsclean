@@ -25,7 +25,7 @@ const placeholderAds: Omit<AdData, 'id'>[] = [
     link: '#',
   },
   {
-    image: 'https://i.imgur.com/vOnTjY6.gif',
+    image: 'https://i.imgur.com/50B9Zo2.gif',
     imageHint: 'delivery service',
     title: 'Layanan Antar Jemput',
     description: 'Gratis antar jemput untuk wilayah Jakarta.',
