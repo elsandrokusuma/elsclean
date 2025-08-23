@@ -91,7 +91,7 @@ export default function AdSlider() {
   }, []);
 
   const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+    Autoplay({ delay: 5000, stopOnInteraction: false })
   );
 
   if (loading) {
