@@ -7,8 +7,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
 } from "@/components/ui/carousel";
 import React, { useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
@@ -106,7 +104,7 @@ export default function AdSlider() {
   }, []);
 
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
+    Autoplay({ delay: 5000, stopOnInteraction: true })
   );
 
   if (loading) {
@@ -158,8 +156,6 @@ export default function AdSlider() {
               );
             })}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
         </Carousel>
       </div>
     </section>
