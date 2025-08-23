@@ -19,7 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const placeholderAds: Omit<AdData, 'id'>[] = [
   {
-    image: 'https://i.imgur.com/v8n2M1b.png',
+    image: 'https://drive.google.com/uc?export=view&id=1L04efg9qbzR8BIamjAVuP61rYw5I4uYg',
     imageHint: 'clean shoes',
     title: 'Sepatu Kinclong Seperti Baru!',
     description: 'Layanan cuci sepatu premium dengan hasil maksimal.',
@@ -56,10 +56,10 @@ export default function AdSlider() {
               await addDoc(adsCollection, ad);
           }
           console.log("Database seeded successfully.");
-          // After seeding, onSnapshot will be triggered with the new data.
+          const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
+          setAds(placeholderAdsWithIds);
       } catch (seedError) {
           console.error("Error seeding database:", seedError);
-          // If seeding fails, we still fallback to placeholder data locally.
           const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
           setAds(placeholderAdsWithIds);
       }
@@ -79,12 +79,7 @@ export default function AdSlider() {
         }
         setLoading(false);
       }, (error) => {
-        console.error("Error fetching ads from Firestore in real-time:", error);
-        toast({
-          variant: "destructive",
-          title: "Gagal Memuat Iklan",
-          description: "Menggunakan data contoh. Pastikan konfigurasi Firebase Anda benar.",
-        });
+        console.error("Error fetching ads from Firestore:", error);
         const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
         setAds(placeholderAdsWithIds);
         setLoading(false);
@@ -93,16 +88,11 @@ export default function AdSlider() {
       return () => unsubscribe();
     } catch (error) {
         console.error("Firebase not configured or other error:", error);
-        toast({
-          variant: "destructive",
-          title: "Konfigurasi Firebase Tidak Ditemukan",
-          description: "Menggunakan data contoh. Harap isi konfigurasi Firebase Anda di src/lib/firebase.ts",
-        });
         const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
         setAds(placeholderAdsWithIds);
         setLoading(false);
     }
-  }, [toast]);
+  }, []);
 
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
