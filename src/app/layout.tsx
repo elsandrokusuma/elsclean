@@ -3,8 +3,11 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'elsclean.id',
-  description: 'Layanan cuci sepatu profesional.',
+  title: 'AudioFlow',
+  description: 'High-fidelity audio equipment and AI-powered recommendations.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
