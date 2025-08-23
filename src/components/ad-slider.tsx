@@ -30,13 +30,6 @@ const placeholderAds: Omit<AdData, 'id'>[] = [
     link: '#',
   },
   {
-    image: 'https://placehold.co/1200x400.png',
-    imageHint: 'satisfaction guarantee',
-    title: 'Garansi Kepuasan',
-    description: 'Tidak puas dengan hasilnya? Kami cuci ulang gratis.',
-    link: '#',
-  },
-  {
     image: 'https://i.imgur.com/50B9Zo2.gif',
     imageHint: 'special promotion',
     title: 'Promo Spesial Musim Hujan!',
