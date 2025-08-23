@@ -2,7 +2,7 @@
 // Add your Firebase configuration object here.
 // You can find this in the Firebase console for your project.
 import {initializeApp, getApp, getApps} from 'firebase/app';
-import {getFirestore, collection, getDocs, type DocumentData} from 'firebase/firestore';
+import {getFirestore, collection, type DocumentData} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'PASTE_YOUR_API_KEY_HERE',
@@ -17,7 +17,7 @@ const firebaseConfig = {
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const db = getFirestore(app);
 
-// Function to fetch ads from Firestore
+// Data type for ads
 export interface AdData extends DocumentData {
   id: string;
   image: string;
@@ -26,50 +26,5 @@ export interface AdData extends DocumentData {
   description: string;
   link: string;
 }
-
-export async function getAds(): Promise<AdData[]> {
-  // A real app would handle errors, but we'll keep it simple.
-  // We will also not handle the case where the config is not filled out.
-  // A real app should have a graceful fallback.
-  try {
-    const adsCollection = collection(db, 'ads');
-    const adsSnapshot = await getDocs(adsCollection);
-    const adsList = adsSnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-    } as AdData));
-    return adsList;
-  } catch (error) {
-    console.error("Error fetching ads from Firestore:", error);
-    // Return placeholder data if Firestore fetch fails
-    return [
-      {
-        id: '1',
-        image: 'https://i.imgur.com/v8n2M1b.png',
-        imageHint: 'clean shoes',
-        title: 'Sepatu Kinclong Seperti Baru!',
-        description: 'Layanan cuci sepatu premium dengan hasil maksimal.',
-        link: '#',
-      },
-      {
-        id: '2',
-        image: 'https://placehold.co/1200x400.png',
-        imageHint: 'delivery service',
-        title: 'Layanan Antar Jemput',
-        description: 'Gratis antar jemput untuk wilayah Jakarta.',
-        link: '#',
-      },
-      {
-        id: '3',
-        image: 'https://placehold.co/1200x400.png',
-        imageHint: 'satisfaction guarantee',
-        title: 'Garansi Kepuasan',
-        description: 'Tidak puas dengan hasilnya? Kami cuci ulang gratis.',
-        link: '#',
-      },
-    ];
-  }
-}
-
 
 export {db};
