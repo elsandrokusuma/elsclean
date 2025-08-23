@@ -3,10 +3,10 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'AudioFlow',
-  description: 'High-fidelity audio equipment and AI-powered recommendations.',
+  title: "elsclean.id",
+  description: "Website description",
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
 };
 
