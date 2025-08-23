@@ -14,12 +14,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { db, type AdData } from "@/lib/firebase";
-import { collection, onSnapshot, query } from "firebase/firestore";
+import { collection, onSnapshot, query, addDoc } from "firebase/firestore";
 import { useToast } from "@/hooks/use-toast";
 
-const placeholderAds: AdData[] = [
+const placeholderAds: Omit<AdData, 'id'>[] = [
   {
-    id: '1',
     image: 'https://i.imgur.com/v8n2M1b.png',
     imageHint: 'clean shoes',
     title: 'Sepatu Kinclong Seperti Baru!',
@@ -27,7 +26,6 @@ const placeholderAds: AdData[] = [
     link: '#',
   },
   {
-    id: '2',
     image: 'https://placehold.co/1200x400.png',
     imageHint: 'delivery service',
     title: 'Layanan Antar Jemput',
@@ -35,7 +33,6 @@ const placeholderAds: AdData[] = [
     link: '#',
   },
   {
-    id: '3',
     image: 'https://placehold.co/1200x400.png',
     imageHint: 'satisfaction guarantee',
     title: 'Garansi Kepuasan',
@@ -51,20 +48,41 @@ export default function AdSlider() {
   const { toast } = useToast();
   
   useEffect(() => {
+    // A function to seed the database if it's empty
+    const seedDatabase = async () => {
+        console.log("Firestore 'ads' collection is empty. Seeding with placeholder data...");
+        try {
+            const adsCollection = collection(db, "ads");
+            for (const ad of placeholderAds) {
+                await addDoc(adsCollection, ad);
+            }
+            console.log("Database seeded successfully.");
+        } catch (seedError) {
+            console.error("Error seeding database:", seedError);
+             toast({
+              variant: "destructive",
+              title: "Gagal Membuat Data Contoh",
+              description: "Tidak dapat menambahkan data awal ke Firestore.",
+            });
+        }
+    };
+
     try {
       const q = query(collection(db, "ads"));
       const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        // If the collection is empty, seed it with initial data.
+        if (querySnapshot.empty) {
+            seedDatabase();
+            setLoading(false); // Stop loading, the new data will trigger a re-render
+            return;
+        }
+
         const adsData: AdData[] = [];
         querySnapshot.forEach((doc) => {
           adsData.push({ id: doc.id, ...doc.data() } as AdData);
         });
 
-        if (adsData.length > 0) {
-          setAds(adsData);
-        } else {
-          // If Firestore is empty, use placeholder data
-          setAds(placeholderAds);
-        }
+        setAds(adsData);
         setLoading(false);
       }, (error) => {
         console.error("Error fetching ads from Firestore in real-time:", error);
@@ -73,8 +91,9 @@ export default function AdSlider() {
           title: "Gagal Memuat Iklan",
           description: "Menggunakan data contoh. Pastikan konfigurasi Firebase Anda benar.",
         });
-        // On error, fallback to placeholder data
-        setAds(placeholderAds);
+        // On error, create AdData array from placeholderAds with dummy IDs
+        const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
+        setAds(placeholderAdsWithIds);
         setLoading(false);
       });
 
@@ -87,7 +106,8 @@ export default function AdSlider() {
           title: "Konfigurasi Firebase Tidak Ditemukan",
           description: "Menggunakan data contoh. Harap isi konfigurasi Firebase Anda di src/lib/firebase.ts",
         });
-        setAds(placeholderAds);
+        const placeholderAdsWithIds = placeholderAds.map((ad, index) => ({...ad, id: `placeholder-${index}`}));
+        setAds(placeholderAdsWithIds);
         setLoading(false);
     }
   }, [toast]);
