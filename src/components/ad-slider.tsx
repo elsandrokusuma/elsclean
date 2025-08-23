@@ -29,6 +29,13 @@ const placeholderAds: Omit<AdData, 'id'>[] = [
     description: 'Gratis antar jemput untuk wilayah Jakarta.',
     link: '#',
   },
+  {
+    image: 'https://i.imgur.com/uCf3VMe.gif',
+    imageHint: 'shoe unyellowing',
+    title: 'Sol Menguning Kembali Putih!',
+    description: 'Layanan unyellowing kami mengembalikan warna asli sol sepatumu.',
+    link: '#',
+  },
 ];
 
 const placeholderDataWithIds = placeholderAds.map((ad, index) => ({ ...ad, id: `placeholder-${index}` }));
