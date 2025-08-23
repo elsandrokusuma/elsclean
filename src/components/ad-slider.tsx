@@ -16,7 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const placeholderAds: Omit<AdData, 'id'>[] = [
   {
-    image: 'https://i.imgur.com/gYKVL3s.png',
+    image: 'https://i.imgur.com/GM1QdyU.gif',
     imageHint: 'clean shoes',
     title: 'Sepatu Kinclong Seperti Baru!',
     description: 'Layanan cuci sepatu premium dengan hasil maksimal.',
