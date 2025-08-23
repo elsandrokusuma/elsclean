@@ -19,7 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const placeholderAds: Omit<AdData, 'id'>[] = [
   {
-    image: 'https://drive.google.com/uc?export=view&id=1L04efg9qbzR8BIamjAVuP61rYw5I4uYg',
+    image: 'https://storage.googleapis.com/stella-images/elsclean/888a75e2-2a74-4217-a16f-124b611c385b.png',
     imageHint: 'clean shoes',
     title: 'Sepatu Kinclong Seperti Baru!',
     description: 'Layanan cuci sepatu premium dengan hasil maksimal.',
