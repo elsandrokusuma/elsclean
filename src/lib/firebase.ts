@@ -4,6 +4,7 @@
 import {initializeApp, getApp, getApps} from 'firebase/app';
 import {getFirestore, collection, type DocumentData} from 'firebase/firestore';
 
+// TODO: Paste your Firebase config object here.
 const firebaseConfig = {
   apiKey: 'PASTE_YOUR_API_KEY_HERE',
   authDomain: 'PASTE_YOUR_AUTH_DOMAIN_HERE',
@@ -14,8 +15,19 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+let app;
+try {
+    app = getApp();
+} catch (e) {
+    if (!getApps().length) {
+        app = initializeApp(firebaseConfig);
+    } else {
+        app = getApp();
+    }
+}
+
 const db = getFirestore(app);
+
 
 // Data type for ads
 export interface AdData extends DocumentData {
