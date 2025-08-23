@@ -14,6 +14,7 @@ import React, { useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { db, type AdData } from "@/lib/firebase";
 import { collection, getDocs, addDoc, query, limit } from "firebase/firestore";
+import { useToast } from "@/hooks/use-toast";
 
 const placeholderAds: Omit<AdData, 'id'>[] = [
   {
@@ -44,6 +45,7 @@ const placeholderDataWithIds = placeholderAds.map((ad, index) => ({ ...ad, id: `
 export default function AdSlider() {
   const [ads, setAds] = useState<AdData[]>([]);
   const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
 
   useEffect(() => {
     const fetchAndSeedAds = async () => {
@@ -55,7 +57,7 @@ export default function AdSlider() {
         const snapshot = await getDocs(q);
 
         if (snapshot.empty) {
-          console.log("Firestore 'ads' collection is empty. Seeding with placeholder data...");
+          // If empty, seed the collection and then set the state
           const seededAds: AdData[] = [];
           for (const ad of placeholderAds) {
             const docRef = await addDoc(adsCollection, ad);
@@ -65,8 +67,14 @@ export default function AdSlider() {
         } else {
           // If not empty, fetch all documents
           const allDocsSnapshot = await getDocs(adsCollection);
-          const adsData = allDocsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AdData));
-          setAds(adsData);
+          if (allDocsSnapshot.empty) {
+             // This case handles if the limit query finds something but the full query doesn't (unlikely)
+             // Or more likely, the seeding is needed after all.
+             setAds(placeholderDataWithIds);
+          } else {
+            const adsData = allDocsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AdData));
+            setAds(adsData);
+          }
         }
       } catch (error) {
         console.error("Error accessing Firestore, falling back to placeholder data:", error);
