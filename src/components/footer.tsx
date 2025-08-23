@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <Link href="/" className="flex items-center space-x-2">
-               <Image src="https://placehold.co/150x50.png" alt="elsclean.id logo" width={120} height={40} data-ai-hint="company logo" className="brightness-0 invert"/>
+               <Image src="https://i.imgur.com/VDew6A8.png" alt="elsclean.id logo" width={120} height={40} data-ai-hint="company logo" className="brightness-0 invert"/>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-primary-foreground/80">
               Solusi terbaik untuk perawatan sepatu kesayangan Anda.

@@ -31,7 +31,7 @@ export default function Header() {
     <header className={cn("sticky top-0 z-50 w-full transition-all duration-300", isScrolled ? "bg-background/80 shadow-md backdrop-blur-sm" : "bg-transparent")}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="https://placehold.co/150x50.png" alt="elsclean.id logo" width={120} height={40} data-ai-hint="company logo" />
+          <Image src="https://i.imgur.com/VDew6A8.png" alt="elsclean.id logo" width={120} height={40} data-ai-hint="company logo" />
         </Link>
         <nav className="hidden md:flex gap-6 items-center">
           {navLinks.map((link) => (
@@ -52,7 +52,7 @@ export default function Header() {
             <SheetContent side="right">
               <div className="grid gap-4 py-6">
                 <Link href="/" className="flex items-center gap-2 mb-4">
-                    <Image src="https://placehold.co/150x50.png" alt="elsclean.id logo" width={120} height={40} data-ai-hint="company logo" />
+                    <Image src="https://i.imgur.com/VDew6A8.png" alt="elsclean.id logo" width={120} height={40} data-ai-hint="company logo" />
                 </Link>
                 {navLinks.map((link) => (
                   <Link key={link.name} href={link.href} className="text-lg font-medium transition-colors hover:text-accent">
