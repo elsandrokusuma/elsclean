@@ -35,6 +35,7 @@ const placeholderDataWithIds = placeholderAds.map((ad, index) => ({ ...ad, id: `
 
 // Helper function to check if a string is a valid URL
 const isValidUrl = (urlString: string) => {
+  if (!urlString || typeof urlString !== 'string') return false;
   try {
     new URL(urlString);
     return true;
@@ -119,7 +120,7 @@ export default function AdSlider() {
           <CarouselContent>
             {ads.map((ad, index) => {
               // Fallback for invalid image URLs from Firestore
-              const imageUrl = isValidUrl(ad.image) ? ad.image : 'https://i.imgur.com/gYKVL3s.png';
+              const imageUrl = isValidUrl(ad.image) ? ad.image : 'https://placehold.co/1200x400.png';
               
               return (
                 <CarouselItem key={ad.id}>
