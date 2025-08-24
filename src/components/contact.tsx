@@ -59,7 +59,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold">Telepon</h3>
-                  <p className="text-muted-foreground">(+62) 812-3456-7890</p>
+                  <p className="text-muted-foreground">(+62) 855-3697-9866</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -68,7 +68,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold">Lokasi</h3>
-                  <p className="text-muted-foreground">Perum Griya Persada, JI. Werkudoro no 21 Mojorejo, Ngemplak, Kab.Boyolali</p>
+                  <p className="text-muted-foreground">Perum Griya Persada, JI. Werkudoro no 21 Mojorejo, 
+                                                       Ngemplak, Kab.Boyolali</p>
                 </div>
               </div>
             </div>
