@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -89,6 +90,11 @@ export default function Catalog() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const generateWhatsAppLink = (serviceName: string) => {
+    const text = `Halo, saya tertarik dengan layanan *${serviceName}* dari elsclean.id. Bisa tolong berikan info lebih lanjut?`;
+    return `https://wa.me/6285536979866?text=${encodeURIComponent(text)}`;
+  };
+
   return (
     <section id="catalog" className="w-full py-12 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
@@ -134,7 +140,11 @@ export default function Catalog() {
                   </ul>
                 </CardContent>
                 <CardFooter className="p-4 pt-0">
-                  <Button className="w-full">Pesan Layanan</Button>
+                    <Button asChild className="w-full">
+                        <Link href={generateWhatsAppLink(service.name)} target="_blank" rel="noopener noreferrer">
+                            Pesan Layanan
+                        </Link>
+                    </Button>
                 </CardFooter>
               </Card>
             ))}
