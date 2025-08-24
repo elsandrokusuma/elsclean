@@ -88,7 +88,7 @@ export default function Contact() {
                     <FormItem><FormLabel>Email</FormLabel><FormControl><Input placeholder="email@anda.com" {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                   <FormField control={form.control} name="subject" render={({ field }) => (
-                    <FormItem><FormLabel>Subjek</FormLabel><FormControl><Input placeholder="Pertanyaan tentang..." {...field} /></FormControl><FormMessage /></FormMessage>
+                    <FormItem><FormLabel>Subjek</FormLabel><FormControl><Input placeholder="Pertanyaan tentang..." {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                   <FormField control={form.control} name="message" render={({ field }) => (
                     <FormItem><FormLabel>Pesan</FormLabel><FormControl><Textarea placeholder="Tuliskan pesan Anda..." rows={5} {...field} /></FormControl><FormMessage /></FormItem>
