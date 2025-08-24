@@ -68,8 +68,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold">Lokasi</h3>
-                  <p className="text-muted-foreground">Perum Griya Persada, JI. Werkudoro no 21 Mojorejo, 
-                                                       Ngemplak, Kab.Boyolali</p>
+                  <p className="text-muted-foreground">
+                    Perum Griya Persada, JI. Werkudoro no 21 Mojorejo, <br/>
+                    Ngemplak, Kab.Boyolali</p>
                 </div>
               </div>
             </div>

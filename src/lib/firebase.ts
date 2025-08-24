@@ -58,5 +58,16 @@ export interface BlogPost extends DocumentData {
   content: BlogContentBlock[];
 }
 
+// Data type for services
+export interface ServiceData extends DocumentData {
+    id: string;
+    name: string;
+    price: string;
+    image: string;
+    imageHint: string;
+    specs: string[];
+    badge?: string;
+}
+
 
 export {db};
