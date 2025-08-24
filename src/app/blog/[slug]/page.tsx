@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 
 type BlogPostPageProps = {
   params: {
@@ -12,16 +11,16 @@ type BlogPostPageProps = {
   };
 };
 
-// Generate static pages for each blog post
+// Generate static pages for each blog post using the initial data
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts(true); // Use cached data for build
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
-  const post = getPostBySlug(params.slug);
+  const post = await getPostBySlug(params.slug);
   if (!post) {
     return {
       title: 'Post Not Found',
@@ -33,8 +32,8 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const post = await getPostBySlug(params.slug);
 
   if (!post) {
     notFound();

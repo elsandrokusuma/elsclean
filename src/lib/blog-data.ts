@@ -1,11 +1,14 @@
+import { db, type BlogPost, type BlogContentBlock } from '@/lib/firebase';
+import { collection, getDocs, getDoc, doc, addDoc, query, where, limit } from 'firebase/firestore';
+
 // In a real app, this data would likely come from a CMS or database
-const blogPosts = [
+const initialBlogPosts: Omit<BlogPost, 'id'>[] = [
   {
     slug: "merawat-sneakers-putih",
     title: "5 Cara Merawat Sepatu Sneakers Putih Agar Tetap Kinclong",
     description: "Jaga sneakers putih kesayanganmu agar tidak menguning dengan tips mudah ini.",
-    image: "https://placehold.co/1200x675.png",
-    imageHint: "white sneakers cleaning",
+    image: "https://i.imgur.com/rx25vM6.gif",
+    imageHint: "clean white shoes",
     author: "Tim elsclean.id",
     date: "18 Juli 2024",
     content: [
@@ -26,8 +29,8 @@ const blogPosts = [
     slug: "mengenal-jenis-bahan-sepatu",
     title: "Mengenal Jenis-Jenis Bahan Sepatu dan Cara Membersihkannya",
     description: "Beda bahan, beda cara penanganan. Pelajari cara membersihkan sepatu sesuai bahannya.",
-    image: "https://placehold.co/1200x675.png",
-    imageHint: "shoe materials leather suede",
+    image: "https://i.imgur.com/rx25vM6.gif",
+    imageHint: "shoe materials",
     author: "Tim elsclean.id",
     date: "19 Juli 2024",
     content: [
@@ -48,8 +51,8 @@ const blogPosts = [
     slug: "diy-repaint-sepatu",
     title: "DIY Repaint Sepatu: Bikin Sepatumu Jadi Baru Lagi!",
     description: "Ingin sepatumu tampil beda? Coba repaint sendiri di rumah dengan panduan lengkap ini.",
-    image: "https://placehold.co/1200x675.png",
-    imageHint: "shoe painting custom",
+    image: "https://i.imgur.com/rx25vM6.gif",
+    imageHint: "shoe repaint diy",
     author: "Tim elsclean.id",
     date: "20 Juli 2024",
     content: [
@@ -68,10 +71,60 @@ const blogPosts = [
   },
 ];
 
-export function getAllPosts() {
-  return blogPosts;
+export async function seedBlogData() {
+    const blogsCollection = collection(db, "blogs");
+    console.log("Seeding blog data to Firestore...");
+    for (const post of initialBlogPosts) {
+        // Check if a post with the same slug already exists
+        const q = query(blogsCollection, where("slug", "==", post.slug), limit(1));
+        const snapshot = await getDocs(q);
+        if (snapshot.empty) {
+            await addDoc(blogsCollection, post);
+            console.log(`Added blog post: ${post.title}`);
+        } else {
+            console.log(`Blog post already exists, skipping: ${post.title}`);
+        }
+    }
 }
 
-export function getPostBySlug(slug: string) {
-  return blogPosts.find((post) => post.slug === slug);
+export async function getAllPosts(cached: boolean = true): Promise<BlogPost[]> {
+    if (cached) {
+      // Return static data for build-time generation (generateStaticParams)
+      return initialBlogPosts.map((post, index) => ({...post, id: `initial-${index}`}));
+    }
+  
+    // Fetch from Firestore for client-side rendering
+    const blogsCollection = collection(db, 'blogs');
+    const snapshot = await getDocs(blogsCollection);
+    if (snapshot.empty) {
+        await seedBlogData();
+        const newSnapshot = await getDocs(blogsCollection);
+        return newSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as BlogPost));
+    }
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as BlogPost));
+}
+
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+    const blogsCollection = collection(db, 'blogs');
+    const q = query(blogsCollection, where("slug", "==", slug), limit(1));
+    const snapshot = await getDocs(q);
+
+    if (snapshot.empty) {
+        // Fallback to check initial data if Firestore is empty or post not found
+        const post = initialBlogPosts.find(p => p.slug === slug);
+        if (post) {
+            // Seed the database for next time
+            await seedBlogData();
+            // Try fetching again
+            const newSnapshot = await getDocs(q);
+            if (!newSnapshot.empty) {
+                const doc = newSnapshot.docs[0];
+                return { id: doc.id, ...doc.data() } as BlogPost;
+            }
+        }
+        return null;
+    }
+
+    const doc = snapshot.docs[0];
+    return { id: doc.id, ...doc.data() } as BlogPost;
 }

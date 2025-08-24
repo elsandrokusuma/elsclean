@@ -5,13 +5,14 @@ import {initializeApp, getApp, getApps} from 'firebase/app';
 import {getFirestore, collection, type DocumentData} from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDa0mHjrTK1O73yosGLrE7I5Q51eoNa3sg",
+  apiKey: "AIzaSyChNVPlDB3l73XQVVQ-5DKO6VshhW6PBt4",
   authDomain: "stationery-inventory.firebaseapp.com",
   projectId: "stationery-inventory",
   storageBucket: "stationery-inventory.firebasestorage.app",
   messagingSenderId: "812550241868",
   appId: "1:812550241868:web:ebf1e04bbfa98a7d56fee9"
 };
+
 
 // Initialize Firebase
 let app;
@@ -37,5 +38,25 @@ export interface AdData extends DocumentData {
   description: string;
   link: string;
 }
+
+// Data type for blog content blocks
+export interface BlogContentBlock {
+  type: 'paragraph' | 'heading';
+  text: string;
+}
+
+// Data type for blog posts
+export interface BlogPost extends DocumentData {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  imageHint: string;
+  author: string;
+  date: string;
+  content: BlogContentBlock[];
+}
+
 
 export {db};
