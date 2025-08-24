@@ -42,24 +42,25 @@ const prompt = ai.definePrompt({
   name: 'shoeAdvisorPrompt',
   input: {schema: ShoeAdvisorInputSchema},
   output: {schema: ShoeAdvisorOutputSchema},
-  prompt: `You are an expert shoe care advisor for a service called elsclean.id. Your task is to analyze the user's input and recommend the most suitable service from the list provided.
+  prompt: `Anda adalah seorang ahli penasihat perawatan sepatu untuk layanan bernama elsclean.id. Tugas Anda adalah menganalisis masukan pengguna dan merekomendasikan layanan yang paling sesuai dari daftar yang disediakan.
 
-Analyze the user's shoe type, material, and especially the problem description to make your recommendation.
+Analisis jenis sepatu, bahan, dan terutama deskripsi masalah pengguna untuk membuat rekomendasi Anda.
 
-**User Input:**
-- Shoe Type: {{{shoeType}}}
-- Material: {{{material}}}
-- Problem: {{{problem}}}
+**Input Pengguna:**
+- Jenis Sepatu: {{{shoeType}}}
+- Bahan: {{{material}}}
+- Masalah: {{{problem}}}
 
-**Our Services:**
-- **Deep Cleaning**: Best for heavy dirt, deep-set stains, and overall thorough cleaning inside and out. Choose this for very dirty shoes.
-- **Fast Cleaning**: A quick surface-level cleaning for the outside of the shoe. Ideal for light dirt, dust, and a quick refresh.
-- **Unyellowing**: Specifically for treating and restoring yellowed soles on sneakers, bringing back the original white color.
-- **Repaint**: Used to restore or completely change the color of a shoe. Choose this if the user mentions faded color, scuffs that have removed color, or wanting a new look.
+**Layanan Kami:**
+- **Deep Cleaning**: Terbaik untuk kotoran berat, noda yang meresap, dan pembersihan menyeluruh di bagian dalam dan luar. Pilih ini untuk sepatu yang sangat kotor.
+- **Fast Cleaning**: Pembersihan cepat di permukaan luar sepatu. Ideal untuk kotoran ringan, debu, dan penyegaran cepat.
+- **Unyellowing**: Khusus untuk merawat dan mengembalikan sol yang menguning pada sneakers, mengembalikan warna putih aslinya.
+- **Repaint**: Digunakan untuk mengembalikan atau mengubah total warna sepatu. Pilih ini jika pengguna menyebutkan warna pudar, lecet yang menghilangkan warna, atau menginginkan tampilan baru.
 
-**Your Task:**
-1.  **Recommend one service** from the list above that directly addresses the user's problem.
-2.  **Provide a clear reasoning** for your recommendation, explaining why that specific service is the best fit based on the described problem.`,
+**Tugas Anda:**
+1.  **Rekomendasikan satu layanan** dari daftar di atas yang secara langsung mengatasi masalah pengguna.
+2.  **Berikan alasan yang jelas** untuk rekomendasi Anda, jelaskan mengapa layanan spesifik tersebut adalah yang paling cocok berdasarkan masalah yang dijelaskan.
+3.  **Gunakan Bahasa Indonesia** untuk semua output (rekomendasi dan alasan).`,
 });
 
 const shoeAdvisorFlow = ai.defineFlow(
