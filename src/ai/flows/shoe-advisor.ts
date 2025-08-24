@@ -42,6 +42,7 @@ const prompt = ai.definePrompt({
   name: 'shoeAdvisorPrompt',
   input: {schema: ShoeAdvisorInputSchema},
   output: {schema: ShoeAdvisorOutputSchema},
+  model: 'googleai/gemini-1.5-flash-latest',
   prompt: `Anda adalah seorang ahli penasihat perawatan sepatu untuk layanan bernama elsclean.id. Tugas Anda adalah menganalisis masukan pengguna dan merekomendasikan layanan yang paling sesuai dari daftar yang disediakan.
 
 Analisis jenis sepatu, bahan, dan terutama deskripsi masalah pengguna untuk membuat rekomendasi Anda.
