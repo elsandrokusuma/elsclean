@@ -1,4 +1,4 @@
-import { getPostBySlug, getAllPosts } from '@/lib/blog-data';
+import { getPostBySlug } from '@/lib/blog-data';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Header from '@/components/header';
@@ -11,13 +11,8 @@ type BlogPostPageProps = {
   };
 };
 
-// Generate static pages for each blog post using the initial data
-export async function generateStaticParams() {
-  const posts = await getAllPosts(true); // Use cached data for build
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+// By removing generateStaticParams, we are making this a dynamic page.
+// Next.js will render the page on-demand for each request.
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
   const post = await getPostBySlug(params.slug);
