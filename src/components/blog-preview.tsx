@@ -3,32 +3,11 @@ import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
-const blogPosts = [
-  {
-    title: "5 Cara Merawat Sepatu Sneakers Putih Agar Tetap Kinclong",
-    description: "Jaga sneakers putih kesayanganmu agar tidak menguning dengan tips mudah ini.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "white sneakers",
-    link: "#",
-  },
-  {
-    title: "Mengenal Jenis-Jenis Bahan Sepatu dan Cara Membersihkannya",
-    description: "Beda bahan, beda cara penanganan. Pelajari cara membersihkan sepatu sesuai bahannya.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "shoe materials",
-    link: "#",
-  },
-  {
-    title: "DIY Repaint Sepatu: Bikin Sepatumu Jadi Baru Lagi!",
-    description: "Ingin sepatumu tampil beda? Coba repaint sendiri di rumah dengan panduan lengkap ini.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "shoe painting",
-    link: "#",
-  },
-];
+import { getAllPosts } from "@/lib/blog-data";
 
 export default function BlogPreview() {
+  const blogPosts = getAllPosts();
+
   return (
     <section id="blog" className="w-full py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
@@ -42,29 +21,31 @@ export default function BlogPreview() {
           </div>
         </div>
         <div className="mx-auto grid grid-cols-1 gap-6 pt-12 sm:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post, index) => (
-            <Card key={index} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
-              <CardHeader className="p-0">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={600}
-                  height={400}
-                  className="aspect-video w-full object-cover"
-                  data-ai-hint={post.imageHint}
-                />
-              </CardHeader>
-              <CardContent className="flex-grow p-6">
-                <CardTitle className="mb-2 text-xl">{post.title}</CardTitle>
-                <CardDescription>{post.description}</CardDescription>
-              </CardContent>
-              <CardFooter className="p-6 pt-0">
-                <Button asChild variant="link" className="p-0 h-auto text-accent">
-                  <Link href={post.link}>
-                    Baca Selengkapnya <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardFooter>
+          {blogPosts.map((post) => (
+            <Card key={post.slug} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+              <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
+                <CardHeader className="p-0">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={600}
+                    height={400}
+                    className="aspect-video w-full object-cover"
+                    data-ai-hint={post.imageHint}
+                  />
+                </CardHeader>
+                <CardContent className="flex-grow p-6">
+                  <CardTitle className="mb-2 text-xl">{post.title}</CardTitle>
+                  <CardDescription>{post.description}</CardDescription>
+                </CardContent>
+                <CardFooter className="p-6 pt-0 mt-auto">
+                  <Button asChild variant="link" className="p-0 h-auto text-accent">
+                    <span className="flex items-center">
+                      Baca Selengkapnya <ArrowRight className="ml-2 h-4 w-4" />
+                    </span>
+                  </Button>
+                </CardFooter>
+              </Link>
             </Card>
           ))}
         </div>
