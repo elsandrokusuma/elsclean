@@ -29,6 +29,8 @@ export const metadata: Metadata = {
         alt: siteConfig.title,
       },
     ],
+    // Moving fb:app_id here will render it with 'property' attribute
+    'app_id': '966242223397117', 
   },
   twitter: {
     card: "summary_large_image",
@@ -36,10 +38,6 @@ export const metadata: Metadata = {
     description: "Solusi terbaik untuk perawatan sepatu kesayangan Anda.",
     images: [siteConfig.ogImage],
   },
-  // Adding the Facebook App ID to resolve the warning
-  other: {
-    'fb:app_id': '966242223397117', // A common placeholder ID
-  }
 };
 
 export default function RootLayout({
