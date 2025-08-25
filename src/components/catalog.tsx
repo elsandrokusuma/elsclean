@@ -57,17 +57,17 @@ export default function Catalog() {
       const servicesCollection = collection(db, "layanan");
       
       try {
-        const q = query(servicesCollection, limit(1));
-        const snapshot = await getDocs(q);
+        const snapshot = await getDocs(query(servicesCollection, limit(1)));
 
         if (snapshot.empty) {
           console.log("Firestore 'layanan' collection is empty. Seeding with initial data.");
-          const seededServices: ServiceData[] = [];
           for (const service of initialServices) {
-            const docRef = await addDoc(servicesCollection, service);
-            seededServices.push({ id: docRef.id, ...service });
+            await addDoc(servicesCollection, service);
           }
-          setServices(seededServices);
+          // After seeding, fetch all data to display
+          const allDocsSnapshot = await getDocs(servicesCollection);
+          const servicesData = allDocsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as ServiceData));
+          setServices(servicesData);
         } else {
           const allDocsSnapshot = await getDocs(servicesCollection);
           const servicesData = allDocsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as ServiceData));
