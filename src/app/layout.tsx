@@ -5,8 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 const siteConfig = {
   title: "elsclean.id - Layanan Cuci Sepatu Profesional",
   description: "Solusi terbaik untuk perawatan sepatu kesayangan Anda. Kami menyediakan layanan Deep Cleaning, Fast Cleaning, Unyellowing, dan Repaint dengan hasil maksimal.",
-  url: "https://elscleanid.netlify.app", // Menggunakan URL production yang benar
-  ogImage: "https://i.imgur.com/rx25vM6.png", // Menggunakan .png untuk keandalan
+  url: "https://elscleanid.netlify.app",
+  ogImage: "https://i.imgur.com/rx25vM6.png",
 };
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteConfig.url,
     title: siteConfig.title,
-    description: siteConfig.description,
+    description: "Solusi terbaik untuk perawatan sepatu kesayangan Anda.",
     images: [
       {
         url: siteConfig.ogImage,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
-    description: siteConfig.description,
+    description: "Solusi terbaik untuk perawatan sepatu kesayangan Anda.",
     images: [siteConfig.ogImage],
   },
 };
