@@ -36,6 +36,10 @@ export const metadata: Metadata = {
     description: "Solusi terbaik untuk perawatan sepatu kesayangan Anda.",
     images: [siteConfig.ogImage],
   },
+  // Adding the Facebook App ID to resolve the warning
+  other: {
+    'fb:app_id': '966242223397117', // A common placeholder ID
+  }
 };
 
 export default function RootLayout({
