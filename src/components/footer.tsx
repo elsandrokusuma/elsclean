@@ -51,7 +51,7 @@ export default function Footer() {
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             <Link href="#" className="text-primary-foreground/80 hover:text-accent"><Twitter className="h-5 w-5" /></Link>
             <Link href="#" className="text-primary-foreground/80 hover:text-accent"><Facebook className="h-5 w-5" /></Link>
-            <Link href="#" className="text-primary-foreground/80 hover:text-accent"><Instagram className="h-5 w-5" /></Link>
+            <Link href="https://www.instagram.com/elsclean.id?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-accent"><Instagram className="h-5 w-5" /></Link>
           </div>
         </div>
       </div>
