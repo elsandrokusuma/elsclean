@@ -6,14 +6,15 @@ const siteConfig = {
   title: "elsclean.id - Layanan Cuci Sepatu Profesional",
   description: "Solusi terbaik untuk perawatan sepatu kesayangan Anda. Kami menyediakan layanan Deep Cleaning, Fast Cleaning, Unyellowing, dan Repaint dengan hasil maksimal.",
   url: "https://elsclean.id", // Ganti dengan URL production Anda nanti
-  ogImage: "https://i.imgur.com/GM1QdyU.gif", // Gambar utama untuk preview
+  ogImage: "https://i.imgur.com/rx25vM6.png", // Menggunakan .png untuk keandalan
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: siteConfig.title,
   description: siteConfig.description,
   icons: {
-    icon: `https://i.imgur.com/VDew6A8.png?v=${new Date().getTime()}`,
+    icon: `/favicon.ico?v=${new Date().getTime()}`,
   },
   openGraph: {
     type: "website",
