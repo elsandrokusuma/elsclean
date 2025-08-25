@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 const siteConfig = {
   title: "elsclean.id - Layanan Cuci Sepatu Profesional",
   description: "Solusi terbaik untuk perawatan sepatu kesayangan Anda. Kami menyediakan layanan Deep Cleaning, Fast Cleaning, Unyellowing, dan Repaint dengan hasil maksimal.",
-  url: "https://elsclean.id", // Ganti dengan URL production Anda nanti
+  url: "https://elscleanid.netlify.app", // Menggunakan URL production yang benar
   ogImage: "https://i.imgur.com/rx25vM6.png", // Menggunakan .png untuk keandalan
 };
 
