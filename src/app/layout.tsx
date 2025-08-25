@@ -29,8 +29,8 @@ export const metadata: Metadata = {
         alt: siteConfig.title,
       },
     ],
-    // Moving fb:app_id here will render it with 'property' attribute
-    'app_id': '966242223397117', 
+    // The correct key is `appId` (camelCase) to generate `property="fb:app_id"`
+    appId: '966242223397117', 
   },
   twitter: {
     card: "summary_large_image",
