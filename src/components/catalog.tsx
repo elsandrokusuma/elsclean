@@ -101,7 +101,7 @@ export default function Catalog() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter md:text-5xl">Layanan Kami</h2>
-            <p className="max-w-[320px] text-base text-muted-foreground md:max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[320px] text-sm text-muted-foreground md:max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Pilih layanan yang paling sesuai untuk membuat sepatumu kembali bersih dan prima seperti baru.
             </p>
           </div>
