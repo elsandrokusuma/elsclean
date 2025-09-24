@@ -35,9 +35,9 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-12 lg:grid-cols-2">
+    <section id="contact" className="w-full py-12 bg-secondary">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16 max-w-5xl mx-auto">
           <div className="space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Hubungi Kami</h2>
             <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
