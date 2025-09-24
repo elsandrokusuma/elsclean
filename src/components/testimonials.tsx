@@ -29,6 +29,13 @@ const testimonials = [
     avatar: "https://placehold.co/100x100.png",
     avatarHint: "man smiling"
   },
+    {
+    name: "Sari W.",
+    role: "Ibu Rumah Tangga",
+    quote: "Sepatu sekolah anak-anak jadi bersih lagi! Gak perlu beli baru tiap tahun ajaran. Praktis dan hemat banget layanan dari elsclean.id.",
+    avatar: "https://placehold.co/100x100.png",
+    avatarHint: "smiling woman"
+  },
 ];
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
@@ -57,36 +64,36 @@ export default function Testimonials() {
   const isMobile = useIsMobile();
 
   return (
-    <section id="testimonials" className="w-full py-12">
+    <section id="testimonials" className="w-full py-12 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Apa Kata Pelanggan Kami</h2>
-            <p className="max-w-[900px] text-sm text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Lihat bagaimana kami membantu para pelanggan setia merawat sepatu kesayangan mereka.
             </p>
           </div>
         </div>
-        <div className="mx-auto max-w-5xl w-full pt-12">
+        <div className="mx-auto max-w-5xl pt-12">
           {isMobile ? (
             <Carousel
               opts={{
                 align: "start",
                 loop: true,
               }}
-              className="w-full max-w-xs mx-auto"
+              className="w-full max-w-sm mx-auto"
             >
-              <CarouselContent>
+              <CarouselContent className="-ml-2">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index}>
+                  <CarouselItem key={index} className="pl-2 basis-1/2">
                     <div className="p-1 h-full">
                       <TestimonialCard testimonial={testimonial} />
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden sm:flex" />
-              <CarouselNext className="hidden sm:flex" />
+              <CarouselPrevious className="flex -left-4" />
+              <CarouselNext className="flex -right-4" />
             </Carousel>
           ) : (
             <div className="grid items-start gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
