@@ -67,14 +67,14 @@ export default function ServiceAdvisor() {
   }
 
   return (
-    <section id="advisor" className="w-full bg-secondary py-12">
+    <section id="advisor" className="w-full bg-secondary py-12 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-5xl">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
                 <div className="space-y-4">
                     <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Konsultasi AI</div>
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Dapatkan Solusi Terbaik</h2>
-                    <p className="max-w-[600px] text-sm text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     Jawab beberapa pertanyaan singkat, dan AI kami akan merekomendasikan perawatan yang paling tepat untuk sepatu kesayangan Anda.
                     </p>
                 </div>

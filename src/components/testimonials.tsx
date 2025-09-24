@@ -63,7 +63,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="w-full py-12 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
+       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Apa Kata Pelanggan Kami</h2>
@@ -82,15 +82,15 @@ export default function Testimonials() {
             >
               <CarouselContent className="-ml-4">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={index} className="pl-4 basis-4/5 md:basis-1/2 lg:basis-1/3">
                     <div className="p-1 h-full">
                       <TestimonialCard testimonial={testimonial} />
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden sm:flex -left-4" />
-              <CarouselNext className="hidden sm:flex -right-4" />
+              <CarouselPrevious className="-left-4" />
+              <CarouselNext className="-right-4" />
             </Carousel>
         </div>
       </div>
