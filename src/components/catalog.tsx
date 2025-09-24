@@ -111,36 +111,36 @@ export default function Catalog() {
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
           </div>
         ) : (
-          <div className="mx-auto grid grid-cols-1 gap-6 pt-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mx-auto grid grid-cols-2 gap-4 pt-12 md:grid-cols-3 lg:grid-cols-4 md:gap-6">
             {services.map((service) => (
-              <Card key={service.id} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+              <Card key={service.id} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl">
                 <CardHeader className="relative p-0">
                   <Image
                     alt={service.name}
                     className="aspect-square w-full object-cover"
-                    height={600}
+                    height={300}
                     src={service.image}
-                    width={600}
+                    width={300}
                     data-ai-hint={service.imageHint}
                   />
                   {service.badge && (
-                    <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">{service.badge}</Badge>
+                    <Badge className="absolute top-2 right-2 text-xs px-2 py-0.5 md:top-4 md:right-4 md:text-sm md:px-2.5 md:py-0.5 bg-accent text-accent-foreground">{service.badge}</Badge>
                   )}
                 </CardHeader>
-                <CardContent className="flex-grow p-4">
-                  <CardTitle className="text-lg">{service.name}</CardTitle>
-                  <p className="text-2xl font-semibold text-primary mt-2">{service.price}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <CardContent className="flex-grow p-3 md:p-4">
+                  <CardTitle className="text-base md:text-lg">{service.name}</CardTitle>
+                  <p className="text-lg md:text-2xl font-semibold text-primary mt-1 md:mt-2">{service.price}</p>
+                  <ul className="mt-3 space-y-1 text-xs text-muted-foreground md:mt-4 md:space-y-2 md:text-sm">
                     {service.specs.map((spec) => (
                       <li key={spec} className="flex items-center">
-                        <svg className="mr-2 h-4 w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        <svg className="mr-2 h-3 w-3 md:h-4 md:w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                         {spec}
                       </li>
                     ))}
                   </ul>
                 </CardContent>
-                <CardFooter className="p-4 pt-0">
-                    <Button asChild className="w-full">
+                <CardFooter className="p-3 pt-0 md:p-4 md:pt-0">
+                    <Button asChild className="w-full text-xs h-9 md:text-sm md:h-10">
                         <Link href={generateWhatsAppLink(service.name)} target="_blank" rel="noopener noreferrer">
                             Pesan Layanan
                         </Link>
