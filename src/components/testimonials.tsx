@@ -38,7 +38,7 @@ export default function Testimonials() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl items-start gap-8 pt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl items-start gap-8 pt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="bg-secondary/50 border-0 shadow-none">
               <CardContent className="p-6">
