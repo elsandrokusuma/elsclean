@@ -3,6 +3,7 @@
 // You can find this in the Firebase console for your project.
 import {initializeApp, getApp, getApps} from 'firebase/app';
 import {getFirestore, collection, type DocumentData} from 'firebase/firestore';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyChNVPlDB3l73XQVVQ-5DKO6VshhW6PBt4",
@@ -27,6 +28,7 @@ try {
 }
 
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 
 // Data type for ads
@@ -70,4 +72,4 @@ export interface ServiceData extends DocumentData {
 }
 
 
-export {db};
+export {db, auth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged};
