@@ -72,7 +72,7 @@ export default function Testimonials() {
             </p>
           </div>
         </div>
-        <div className="mx-auto max-w-5xl pt-12 px-10">
+        <div className="mx-auto max-w-5xl pt-12">
             <Carousel
               opts={{
                 align: "start",
@@ -89,8 +89,8 @@ export default function Testimonials() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-0" />
-              <CarouselNext className="right-0" />
+              <CarouselPrevious className="left-[-12px] sm:left-0" />
+              <CarouselNext className="right-[-12px] sm:right-0" />
             </Carousel>
         </div>
       </div>
