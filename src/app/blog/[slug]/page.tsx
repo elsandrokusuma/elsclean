@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <Button asChild variant="ghost" className="pl-0 text-muted-foreground hover:text-foreground">
               <Link href="/#blog">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Kembali ke Artikel
+                Kembali ke Blog
               </Link>
             </Button>
           </div>
