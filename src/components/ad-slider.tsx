@@ -105,7 +105,7 @@ export default function AdSlider() {
   }
 
   return (
-    <section className="w-full pt-6 pb-2 md:pt-8 md:pb-4 flex justify-center">
+    <section className="w-full pt-6 md:pt-8 flex justify-center">
       <div className="container px-4 md:px-6">
         <Carousel
           className="w-full"
