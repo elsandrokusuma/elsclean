@@ -45,30 +45,30 @@ export default function Contact() {
             </p>
             <div className="space-y-4 pt-4">
               <div className="flex items-start space-x-4">
-                <div className="rounded-md bg-muted p-3">
-                  <Mail className="h-6 w-6 text-primary" />
+                <div className="rounded-md bg-muted p-2">
+                  <Mail className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Email</h3>
-                  <p className="text-muted-foreground">support@elsclean.id</p>
+                  <h3 className="text-base md:text-lg font-semibold">Email</h3>
+                  <p className="text-sm text-muted-foreground">support@elsclean.id</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="rounded-md bg-muted p-3">
-                  <Phone className="h-6 w-6 text-primary" />
+                <div className="rounded-md bg-muted p-2">
+                  <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Telepon</h3>
-                  <p className="text-muted-foreground">(+62) 855-3697-9866</p>
+                  <h3 className="text-base md:text-lg font-semibold">Telepon</h3>
+                  <p className="text-sm text-muted-foreground">(+62) 855-3697-9866</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="rounded-md bg-muted p-3">
-                  <MapPin className="h-6 w-6 text-primary" />
+                <div className="rounded-md bg-muted p-2">
+                  <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Lokasi</h3>
-                  <p className="text-muted-foreground">
+                  <h3 className="text-base md:text-lg font-semibold">Lokasi</h3>
+                  <p className="text-sm text-muted-foreground">
                     Perum Griya Persada, JI. Werkudoro no 21 Mojorejo, <br/>
                     Ngemplak, Kab.Boyolali</p>
                 </div>
