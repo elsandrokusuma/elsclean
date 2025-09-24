@@ -69,71 +69,73 @@ export default function ServiceAdvisor() {
   return (
     <section id="advisor" className="w-full bg-secondary py-12">
       <div className="container px-4 md:px-6">
-        <div className="mx-auto grid max-w-5xl items-center gap-6 lg:grid-cols-2 lg:gap-12">
-          <div className="space-y-4">
-            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Konsultasi AI</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Dapatkan Solusi Terbaik</h2>
-            <p className="max-w-[600px] text-sm text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Jawab beberapa pertanyaan singkat, dan AI kami akan merekomendasikan perawatan yang paling tepat untuk sepatu kesayangan Anda.
-            </p>
-          </div>
-          <Card className="w-full">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)}>
-                <CardHeader>
-                  <CardTitle>Dapatkan Rekomendasi</CardTitle>
-                  <CardDescription>Isi formulir di bawah ini.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <FormField
-                    control={form.control}
-                    name="shoeType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Jenis Sepatu</FormLabel>
-                        <FormControl>
-                          <Input placeholder="e.g., Sneakers, Boots, Pantofel" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="material"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Bahan</FormLabel>
-                        <FormControl>
-                          <Input placeholder="e.g., Kanvas, Kulit, Suede" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="problem"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Deskripsi Masalah</FormLabel>
-                        <FormControl>
-                          <Textarea placeholder="e.g., Kotor, berjamur, warna pudar..." {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </CardContent>
-                <CardFooter>
-                  <Button type="submit" disabled={loading} className="w-full bg-accent hover:bg-accent/90">
-                    {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Wand2 className="mr-2 h-4 w-4" />}
-                    Dapatkan Rekomendasi Saya
-                  </Button>
-                </CardFooter>
-              </form>
-            </Form>
-          </Card>
+        <div className="mx-auto max-w-5xl">
+            <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
+                <div className="space-y-4">
+                    <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Konsultasi AI</div>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Dapatkan Solusi Terbaik</h2>
+                    <p className="max-w-[600px] text-sm text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Jawab beberapa pertanyaan singkat, dan AI kami akan merekomendasikan perawatan yang paling tepat untuk sepatu kesayangan Anda.
+                    </p>
+                </div>
+                <Card className="w-full">
+                    <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)}>
+                        <CardHeader>
+                        <CardTitle>Dapatkan Rekomendasi</CardTitle>
+                        <CardDescription>Isi formulir di bawah ini.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                        <FormField
+                            control={form.control}
+                            name="shoeType"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Jenis Sepatu</FormLabel>
+                                <FormControl>
+                                <Input placeholder="e.g., Sneakers, Boots, Pantofel" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="material"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Bahan</FormLabel>
+                                <FormControl>
+                                <Input placeholder="e.g., Kanvas, Kulit, Suede" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="problem"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Deskripsi Masalah</FormLabel>
+                                <FormControl>
+                                <Textarea placeholder="e.g., Kotor, berjamur, warna pudar..." {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        </CardContent>
+                        <CardFooter>
+                        <Button type="submit" disabled={loading} className="w-full bg-accent hover:bg-accent/90">
+                            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Wand2 className="mr-2 h-4 w-4" />}
+                            Dapatkan Rekomendasi Saya
+                        </Button>
+                        </CardFooter>
+                    </form>
+                    </Form>
+                </Card>
+            </div>
         </div>
         {result && (
           <div className="mt-12 max-w-5xl mx-auto">
