@@ -38,9 +38,9 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
-    <Card className="flex flex-col bg-secondary border-0 shadow-none h-full">
+    <Card className="flex flex-col bg-primary text-primary-foreground border-0 shadow-none h-full">
       <CardContent className="p-6 flex-grow">
-        <blockquote className="text-base italic text-foreground">
+        <blockquote className="text-base italic">
           “{testimonial.quote}”
         </blockquote>
       </CardContent>
@@ -52,7 +52,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
           </Avatar>
           <div>
             <p className="font-semibold">{testimonial.name}</p>
-            <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+            <p className="text-sm text-primary-foreground/80">{testimonial.role}</p>
           </div>
         </div>
       </CardHeader>
