@@ -78,14 +78,14 @@ export default function Testimonials() {
           {isMobile ? (
             <Carousel
               opts={{
-                align: "start",
+                align: "center",
                 loop: true,
               }}
-              className="w-full max-w-sm mx-auto"
+              className="w-full"
             >
-              <CarouselContent className="-ml-2">
+              <CarouselContent className="-ml-4">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="pl-2 basis-1/2">
+                  <CarouselItem key={index} className="pl-4 basis-4/5 md:basis-1/2">
                     <div className="p-1 h-full">
                       <TestimonialCard testimonial={testimonial} />
                     </div>
