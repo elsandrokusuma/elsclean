@@ -69,7 +69,7 @@ export default function ServiceAdvisor() {
   return (
     <section id="advisor" className="w-full py-12 bg-secondary">
       <div className="container px-4 md:px-6">
-        <div className="mx-auto grid max-w-5xl items-start gap-6 lg:grid-cols-2 lg:gap-12">
+        <div className="mx-auto grid max-w-5xl items-center gap-6 lg:grid-cols-2 lg:gap-12">
           <div className="space-y-4">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Konsultasi AI</div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Dapatkan Solusi Terbaik</h2>
