@@ -1,9 +1,12 @@
 import { getPostBySlug } from '@/lib/blog-data';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
 type BlogPostPageProps = {
   params: {
@@ -39,6 +42,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Header />
       <main className="flex-1 py-12 md:py-24">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+          <div className="mb-8">
+            <Button asChild variant="ghost" className="pl-0 text-muted-foreground hover:text-foreground">
+              <Link href="/#blog">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Kembali ke Artikel
+              </Link>
+            </Button>
+          </div>
           <article>
             <header className="mb-8">
               <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">{post.title}</h1>
