@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { useIsMobile } from "@/hooks/use-mobile";
 import React from "react";
 
 const testimonials = [
@@ -61,7 +60,6 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
 );
 
 export default function Testimonials() {
-  const isMobile = useIsMobile();
 
   return (
     <section id="testimonials" className="w-full py-12 md:py-24">
@@ -75,33 +73,25 @@ export default function Testimonials() {
           </div>
         </div>
         <div className="mx-auto max-w-5xl pt-12">
-          {isMobile ? (
             <Carousel
               opts={{
-                align: "center",
+                align: "start",
                 loop: true,
               }}
               className="w-full"
             >
               <CarouselContent className="-ml-4">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="pl-4 basis-4/5 md:basis-1/2">
+                  <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                     <div className="p-1 h-full">
                       <TestimonialCard testimonial={testimonial} />
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="flex -left-4" />
-              <CarouselNext className="flex -right-4" />
+              <CarouselPrevious className="hidden sm:flex -left-4" />
+              <CarouselNext className="hidden sm:flex -right-4" />
             </Carousel>
-          ) : (
-            <div className="grid items-start gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
-              {testimonials.map((testimonial, index) => (
-                <TestimonialCard key={index} testimonial={testimonial} />
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </section>
