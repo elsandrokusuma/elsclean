@@ -96,7 +96,7 @@ export default function Catalog() {
   };
 
   return (
-    <section id="catalog" className="w-full pt-6 md:pt-12 pb-12 md:pb-24 lg:pb-32">
+    <section id="catalog" className="w-full pt-6 md:pt-12 pb-12 md:pb-16 lg:pb-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
