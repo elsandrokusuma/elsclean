@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useIsMobile } from "@/hooks/use-mobile";
+import React from "react";
 
 const testimonials = [
   {
@@ -26,7 +31,31 @@ const testimonials = [
   },
 ];
 
+const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
+    <Card className="bg-secondary/50 border-0 shadow-none h-full">
+      <CardContent className="p-6">
+        <blockquote className="text-base italic text-foreground">
+          “{testimonial.quote}”
+        </blockquote>
+      </CardContent>
+      <CardHeader>
+        <div className="flex items-center gap-4">
+          <Avatar>
+            <AvatarImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint={testimonial.avatarHint} />
+            <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+          </Avatar>
+          <div>
+            <p className="font-semibold">{testimonial.name}</p>
+            <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+          </div>
+        </div>
+      </CardHeader>
+    </Card>
+);
+
 export default function Testimonials() {
+  const isMobile = useIsMobile();
+
   return (
     <section id="testimonials" className="w-full py-12">
       <div className="container mx-auto px-4 md:px-6">
@@ -38,28 +67,34 @@ export default function Testimonials() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl items-start gap-8 pt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-secondary/50 border-0 shadow-none">
-              <CardContent className="p-6">
-                <blockquote className="text-lg italic text-foreground">
-                  “{testimonial.quote}”
-                </blockquote>
-              </CardContent>
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <Avatar>
-                    <AvatarImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint={testimonial.avatarHint} />
-                    <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          ))}
+        <div className="mx-auto max-w-5xl w-full pt-12">
+          {isMobile ? (
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full max-w-xs mx-auto"
+            >
+              <CarouselContent>
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-1 h-full">
+                      <TestimonialCard testimonial={testimonial} />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
+          ) : (
+            <div className="grid items-start gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
+              {testimonials.map((testimonial, index) => (
+                <TestimonialCard key={index} testimonial={testimonial} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
