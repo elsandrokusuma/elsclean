@@ -38,13 +38,13 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
-    <Card className="bg-secondary/50 border-0 shadow-none h-full">
-      <CardContent className="p-6">
+    <Card className="flex flex-col bg-secondary/50 border-0 shadow-none h-full">
+      <CardContent className="p-6 flex-grow">
         <blockquote className="text-base italic text-foreground">
           “{testimonial.quote}”
         </blockquote>
       </CardContent>
-      <CardHeader>
+      <CardHeader className="mt-auto">
         <div className="flex items-center gap-4">
           <Avatar>
             <AvatarImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint={testimonial.avatarHint} />
