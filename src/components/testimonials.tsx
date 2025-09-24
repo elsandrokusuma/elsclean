@@ -72,7 +72,7 @@ export default function Testimonials() {
             </p>
           </div>
         </div>
-        <div className="mx-auto max-w-5xl pt-12">
+        <div className="mx-auto max-w-5xl pt-12 px-10 sm:px-0">
             <Carousel
               opts={{
                 align: "start",
@@ -80,17 +80,17 @@ export default function Testimonials() {
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-4">
+              <CarouselContent className="-ml-2 md:-ml-4">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="pl-4 basis-4/5 md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-4/5 md:basis-1/2 lg:basis-1/3">
                     <div className="p-1 h-full">
                       <TestimonialCard testimonial={testimonial} />
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="-left-4" />
-              <CarouselNext className="-right-4" />
+              <CarouselPrevious className="left-0" />
+              <CarouselNext className="right-0" />
             </Carousel>
         </div>
       </div>
