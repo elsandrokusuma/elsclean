@@ -5,37 +5,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import React from "react";
+import testimonialsData from '@/lib/placeholder-images.json';
 
-const testimonials = [
-  {
-    name: "Andi R.",
-    role: "Pecinta Sneakers",
-    quote: "Hasilnya luar biasa! Sepatu Jordan saya yang kusam sekarang kelihatan seperti baru lagi setelah di-deep clean. Pelayanannya juga ramah dan cepat. Sangat direkomendasikan!",
-    avatar: "https://picsum.photos/seed/andi/100/100",
-    avatarHint: "man portrait"
-  },
-  {
-    name: "Bunga C.",
-    role: "Karyawan Swasta",
-    quote: "Layanan antar jemputnya sangat membantu di tengah kesibukan. Sepatu kerja saya kembali bersih dan wangi tanpa harus keluar rumah. Terima kasih elsclean.id!",
-    avatar: "https://picsum.photos/seed/bunga/100/100",
-    avatarHint: "woman portrait"
-  },
-  {
-    name: "Rian S.",
-    role: "Mahasiswa",
-    quote: "Awalnya ragu untuk repaint sepatu, tapi hasilnya melebihi ekspektasi. Warnanya solid dan rapi banget. Teman-teman sampai mengira saya beli sepatu baru. Keren!",
-    avatar: "https://picsum.photos/seed/rian/100/100",
-    avatarHint: "man smiling"
-  },
-    {
-    name: "Sari W.",
-    role: "Ibu Rumah Tangga",
-    quote: "Sepatu sekolah anak-anak jadi bersih lagi! Gak perlu beli baru tiap tahun ajaran. Praktis dan hemat banget layanan dari elsclean.id.",
-    avatar: "https://picsum.photos/seed/sari/100/100",
-    avatarHint: "smiling woman"
-  },
-];
+const testimonials = testimonialsData.avatars;
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
     <Card className="flex flex-col bg-primary text-primary-foreground border-0 shadow-none h-full">
