@@ -38,7 +38,7 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
-    <Card className="flex flex-col bg-secondary/50 border-0 shadow-none h-full">
+    <Card className="flex flex-col bg-secondary border-0 shadow-none h-full">
       <CardContent className="p-6 flex-grow">
         <blockquote className="text-base italic text-foreground">
           “{testimonial.quote}”
