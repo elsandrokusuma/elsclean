@@ -138,7 +138,7 @@ export default function ServiceAdvisor() {
             </div>
         </div>
         {result && (
-          <div className="mt-6 md:mt-12 max-w-5xl mx-auto">
+          <div className="mt-5 md:mt-12 max-w-5xl mx-auto">
             <Card className="animate-in fade-in-50 duration-500">
               <CardHeader>
                 <CardTitle>Rekomendasi Perawatan AI</CardTitle>
