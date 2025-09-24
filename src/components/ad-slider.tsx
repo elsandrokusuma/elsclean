@@ -96,7 +96,7 @@ export default function AdSlider() {
 
   if (loading) {
     return (
-      <section className="w-full flex justify-center">
+      <section className="w-full flex justify-center pt-2">
         <div className="container px-4 md:px-6">
           <div className="w-full aspect-[3/1] bg-muted animate-pulse rounded-lg" />
         </div>

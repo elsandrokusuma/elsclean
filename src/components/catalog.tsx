@@ -96,7 +96,7 @@ export default function Catalog() {
   };
 
   return (
-    <section id="catalog" className="w-full py-12 md:py-16">
+    <section id="catalog" className="w-full pt-12 pb-12 md:py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
@@ -111,7 +111,7 @@ export default function Catalog() {
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
           </div>
         ) : (
-          <div className="mx-auto grid grid-cols-2 gap-2 pt-5 md:pt-8 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mx-auto grid grid-cols-2 gap-2 pt-5 md:grid-cols-3 lg:grid-cols-4 md:pt-8">
             {services.map((service) => (
               <Card key={service.id} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl">
                 <CardHeader className="relative p-0">
