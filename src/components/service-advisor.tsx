@@ -67,7 +67,7 @@ export default function ServiceAdvisor() {
   }
 
   return (
-    <section id="advisor" className="w-full bg-secondary py-12 md:py-24">
+    <section id="advisor" className="w-full bg-secondary py-12 md:py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-5xl">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
