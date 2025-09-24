@@ -96,7 +96,7 @@ export default function AdSlider() {
 
   if (loading) {
     return (
-      <section className="w-full py-6 md:py-8 flex justify-center">
+      <section className="w-full flex justify-center">
         <div className="container px-4 md:px-6">
           <div className="w-full aspect-[3/1] bg-muted animate-pulse rounded-lg" />
         </div>
@@ -105,7 +105,7 @@ export default function AdSlider() {
   }
 
   return (
-    <section className="w-full pt-6 md:pt-8 flex justify-center">
+    <section className="w-full pt-2 flex justify-center">
       <div className="container px-4 md:px-6">
         <Carousel
           className="w-full"
