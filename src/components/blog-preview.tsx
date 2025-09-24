@@ -53,7 +53,7 @@ export default function BlogPreview() {
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
           </div>
         ) : (
-          <div className="mx-auto grid grid-cols-1 gap-6 pt-12 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl">
+          <div className="mx-auto grid grid-cols-1 gap-6 pt-6 md:pt-12 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl">
             {blogPosts.map((post) => (
               <Card key={post.id} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
                 <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">

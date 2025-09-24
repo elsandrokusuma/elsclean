@@ -72,7 +72,7 @@ export default function Testimonials() {
             </p>
           </div>
         </div>
-        <div className="mx-auto max-w-5xl pt-12">
+        <div className="mx-auto max-w-5xl pt-6 md:pt-12">
             <Carousel
               opts={{
                 align: "start",

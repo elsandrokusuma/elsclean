@@ -111,7 +111,7 @@ export default function Catalog() {
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
           </div>
         ) : (
-          <div className="mx-auto grid grid-cols-2 gap-2 pt-8 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mx-auto grid grid-cols-2 gap-2 pt-6 md:pt-8 md:grid-cols-3 lg:grid-cols-4">
             {services.map((service) => (
               <Card key={service.id} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl">
                 <CardHeader className="relative p-0">
