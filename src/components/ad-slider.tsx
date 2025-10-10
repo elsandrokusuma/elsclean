@@ -31,7 +31,7 @@ const placeholderAds: Omit<AdData, 'id'>[] = [
   },
 ];
 
-const placeholderDataWithIds = placeholderAds.map((ad, index) => ({ ...ad, id: `placeholder-${index}` }));
+const placeholderDataWithIds: AdData[] = placeholderAds.map((ad, index) => ({ ...ad, id: `placeholder-${index}` }));
 
 // Helper function to check if a string is a valid URL
 const isValidUrl = (urlString: string) => {
@@ -64,7 +64,10 @@ export default function AdSlider() {
           const seededAds: AdData[] = [];
           for (const ad of placeholderAds) {
             const docRef = await addDoc(adsCollection, ad);
-            seededAds.push({ id: docRef.id, ...(docRef as unknown as AdData) });
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+              seededAds.push({ id: docRef.id, ...docSnap.data() } as AdData);
+            }
           }
           setAds(seededAds);
         } else {
