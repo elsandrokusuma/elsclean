@@ -20,7 +20,7 @@ export default function BlogPreview() {
       setLoading(true);
       try {
         const posts = await getAllPosts(false); // Fetch from firestore
-        setBlogPosts(posts);
+        setBlogPosts(posts as BlogPost[]);
       } catch (error) {
         console.error("Error fetching blog posts from Firestore:", error);
         toast({

@@ -64,7 +64,7 @@ export default function AdSlider() {
           const seededAds: AdData[] = [];
           for (const ad of placeholderAds) {
             const docRef = await addDoc(adsCollection, ad);
-            seededAds.push({ id: docRef.id, ...ad });
+            seededAds.push({ id: docRef.id, ...(docRef as unknown as AdData) });
           }
           setAds(seededAds);
         } else {
