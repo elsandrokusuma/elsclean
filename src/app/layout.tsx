@@ -6,8 +6,8 @@ const siteConfig = {
   title: "elsclean.id - Layanan Cuci Sepatu Profesional",
   description: "Solusi terbaik untuk perawatan sepatu kesayangan Anda.",
   url: "https://elscleanid.netlify.app",
-  // Menggunakan favicon sebagai gambar OG
-  ogImage: "https://elscleanid.netlify.app/favicon.ico",
+  // Menggunakan logo sebagai gambar OG dan favicon
+  ogImage: "https://i.imgur.com/VDew6A8.png",
 };
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
   icons: {
-    icon: `/favicon.ico?v=${new Date().getTime()}`,
+    icon: siteConfig.ogImage, // Menggunakan URL logo yang valid
   },
   openGraph: {
     type: "website",
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteConfig.ogImage,
-        width: 128, // Ukuran umum untuk favicon
-        height: 128,
+        width: 120, 
+        height: 40,
         alt: siteConfig.title,
       },
     ],
